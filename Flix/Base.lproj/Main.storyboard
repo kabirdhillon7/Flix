@@ -201,14 +201,14 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jxq-e9-1Oc" customClass="MovieGridCell" customModule="Flix" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="movieCell" reuseIdentifier="movieCell" id="jxq-e9-1Oc" customClass="MovieGridCell" customModule="Flix" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="209" height="257"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CCL-5f-aiC" customClass="MovieGridCell" customModule="Flix" customModuleProvider="target">
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="movieCell" insetsLayoutMarginsFromSafeArea="NO" id="CCL-5f-aiC">
                                             <rect key="frame" x="0.0" y="0.0" width="209" height="257"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y4t-RR-Erl">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="posterView" translatesAutoresizingMaskIntoConstraints="NO" id="y4t-RR-Erl">
                                                     <rect key="frame" x="0.0" y="0.0" width="209" height="257"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -229,6 +229,7 @@
                     <navigationItem key="navigationItem" title="Superhero" id="gyv-ro-h5A"/>
                     <connections>
                         <outlet property="collectionView" destination="Ybg-gj-IzK" id="DaP-qR-ucV"/>
+                        <outlet property="moveCell" destination="jxq-e9-1Oc" id="ViG-AY-kDt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BoS-Mp-YaF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
