@@ -20,9 +20,13 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.delegate = self
         collectionView.dataSource = self
         
+        // Adjusts Navigation Bar text color
+        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
-        layout.minimumLineSpacing = 40
+        layout.minimumLineSpacing = 20
         layout.minimumInteritemSpacing = 4
         
         let width = (view.frame.size.width - layout.minimumInteritemSpacing * 2) / 3
@@ -72,7 +76,22 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
 
         return cell
     }
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("loading MovieGridDetailsViewController")
+        
+        // Find the selected movie
+        let cell  = sender as! UICollectionViewCell
+        let indexPath = collectionView.indexPath(for: cell)!
+        
+        let movie = movies[indexPath.row]
+        
+        // Pass the selected movie to the details view controller
+        let movieGridDetailsViewController = segue.destination as! MovieGridDetailsViewController
+        movieGridDetailsViewController.movie = movie
+        print("Selected cell number: \(indexPath.row)")
+    }
+    
     /*
     // MARK: - Navigation
 
