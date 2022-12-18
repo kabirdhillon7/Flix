@@ -12,6 +12,7 @@
 		485BA2282759FC73002C4F39 /* MovieGridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485BA2272759FC73002C4F39 /* MovieGridViewController.swift */; };
 		485BA22A2759FF8F002C4F39 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485BA2292759FF8F002C4F39 /* MovieGridCell.swift */; };
 		485BA22C275A0D9B002C4F39 /* MovieGridDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */; };
+		4862A5C5294EA5FF00C02F73 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 4862A5C4294EA5FF00C02F73 /* YouTubeiOSPlayerHelper */; };
 		489DE9852746203E0055763E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9842746203E0055763E /* AppDelegate.swift */; };
 		489DE9872746203E0055763E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9862746203E0055763E /* SceneDelegate.swift */; };
 		489DE9892746203E0055763E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9882746203E0055763E /* ViewController.swift */; };
@@ -83,6 +84,7 @@
 			files = (
 				489DE9BA274712260055763E /* AlamofireImage in Frameworks */,
 				24318B0684029A0E6682271D /* Pods_Flix.framework in Frameworks */,
+				4862A5C5294EA5FF00C02F73 /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +209,7 @@
 			name = Flix;
 			packageProductDependencies = (
 				489DE9B9274712260055763E /* AlamofireImage */,
+				4862A5C4294EA5FF00C02F73 /* YouTubeiOSPlayerHelper */,
 			);
 			productName = Flix;
 			productReference = 489DE9812746203E0055763E /* Flix.app */;
@@ -285,6 +288,7 @@
 			mainGroup = 489DE9782746203E0055763E;
 			packageReferences = (
 				489DE9B8274712260055763E /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				4862A5C3294EA5FF00C02F73 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
 			);
 			productRefGroup = 489DE9822746203E0055763E /* Products */;
 			projectDirPath = "";
@@ -810,6 +814,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4862A5C3294EA5FF00C02F73 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/youtube/youtube-ios-player-helper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 		489DE9B8274712260055763E /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
@@ -821,6 +833,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4862A5C4294EA5FF00C02F73 /* YouTubeiOSPlayerHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4862A5C3294EA5FF00C02F73 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
+			productName = YouTubeiOSPlayerHelper;
+		};
 		489DE9B9274712260055763E /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 489DE9B8274712260055763E /* XCRemoteSwiftPackageReference "AlamofireImage" */;
