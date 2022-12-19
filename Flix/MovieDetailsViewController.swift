@@ -42,6 +42,10 @@ class MovieDetailsViewController: UIViewController {
         
         backdropView.af.setImage(withURL: backdropUrl!)
         
+        // need to get the
+        let movieID = movie["id"]
+        let videoAPIURL = "https://api.themoviedb.org/3/movie/\(movieID)/videos?api_key=93e318361fd7d5007c54fbedb1dc26ee&language=en-US"
+        
         playerView.load(withVideoId: "")
         
     }

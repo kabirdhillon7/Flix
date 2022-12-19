@@ -129,7 +129,6 @@
                     <navigationItem key="navigationItem" id="m3a-9w-eDE"/>
                     <connections>
                         <outlet property="backdropView" destination="cse-He-4B6" id="pDf-Qu-lL4"/>
-                        <outlet property="playerView" destination="lv1-ph-PvE" id="jeU-NY-VX7"/>
                         <outlet property="posterView" destination="jnx-gt-Z6A" id="4bS-av-SLx"/>
                         <outlet property="synopsisLabel" destination="7KA-W2-mff" id="Q2r-VX-zLs"/>
                         <outlet property="titleLabel" destination="LIq-ra-m9o" id="1Ir-Tx-Spj"/>
