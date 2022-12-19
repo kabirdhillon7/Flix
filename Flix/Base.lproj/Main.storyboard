@@ -95,19 +95,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="cse-He-4B6">
-                                <rect key="frame" x="0.0" y="88" width="428" height="210"/>
+                                <rect key="frame" x="-2" y="88" width="428" height="208"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jnx-gt-Z6A">
-                                <rect key="frame" x="10" y="204" width="124" height="185"/>
+                                <rect key="frame" x="10" y="204" width="122" height="185"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="ZPI-ZV-VFh" appends="YES" id="oSo-zI-JUH"/>
-                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LIq-ra-m9o">
-                                <rect key="frame" x="142" y="306" width="276" height="21"/>
+                                <rect key="frame" x="140" y="306" width="278" height="21"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,6 +117,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lv1-ph-PvE" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="526" width="428" height="240"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="heA-gC-Prj"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -127,42 +129,15 @@
                     <navigationItem key="navigationItem" id="m3a-9w-eDE"/>
                     <connections>
                         <outlet property="backdropView" destination="cse-He-4B6" id="pDf-Qu-lL4"/>
+                        <outlet property="playerView" destination="lv1-ph-PvE" id="jeU-NY-VX7"/>
                         <outlet property="posterView" destination="jnx-gt-Z6A" id="4bS-av-SLx"/>
                         <outlet property="synopsisLabel" destination="7KA-W2-mff" id="Q2r-VX-zLs"/>
                         <outlet property="titleLabel" destination="LIq-ra-m9o" id="1Ir-Tx-Spj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4u0-3g-66z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="ZPI-ZV-VFh"/>
             </objects>
             <point key="canvasLocation" x="-998.13084112149522" y="1495.4643628509721"/>
-        </scene>
-        <!--Player View Controller-->
-        <scene sceneID="TH0-D9-ziG">
-            <objects>
-                <viewController id="GCm-fC-5dJ" customClass="YTPlayerViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="pa3-tG-RJO">
-                        <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lv1-ph-PvE" customClass="YTPlayerView">
-                                <rect key="frame" x="0.0" y="47" width="428" height="240"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="AB6-NQ-a8G"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="lv1-ph-PvE" firstAttribute="top" secondItem="AB6-NQ-a8G" secondAttribute="top" id="iwC-lj-YjY"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="playerView" destination="lv1-ph-PvE" id="XcR-ys-RJT"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JkS-L0-oMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-998.13084112149522" y="2201.7278617710585"/>
         </scene>
         <!--Movie Grid Details View Controller-->
         <scene sceneID="Zeb-2a-m5d">
