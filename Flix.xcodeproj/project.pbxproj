@@ -13,6 +13,7 @@
 		485BA22A2759FF8F002C4F39 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485BA2292759FF8F002C4F39 /* MovieGridCell.swift */; };
 		485BA22C275A0D9B002C4F39 /* MovieGridDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */; };
 		4862A5C5294EA5FF00C02F73 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 4862A5C4294EA5FF00C02F73 /* YouTubeiOSPlayerHelper */; };
+		4862A5C7295000A200C02F73 /* YTPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4862A5C6295000A200C02F73 /* YTPlayerViewController.swift */; };
 		489DE9852746203E0055763E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9842746203E0055763E /* AppDelegate.swift */; };
 		489DE9872746203E0055763E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9862746203E0055763E /* SceneDelegate.swift */; };
 		489DE9892746203E0055763E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9882746203E0055763E /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		485BA2272759FC73002C4F39 /* MovieGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridViewController.swift; sourceTree = "<group>"; };
 		485BA2292759FF8F002C4F39 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
 		485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridDetailsViewController.swift; sourceTree = "<group>"; };
+		4862A5C6295000A200C02F73 /* YTPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTPlayerViewController.swift; sourceTree = "<group>"; };
 		489DE9812746203E0055763E /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		489DE9842746203E0055763E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		489DE9862746203E0055763E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 				485BA2272759FC73002C4F39 /* MovieGridViewController.swift */,
 				485BA2292759FF8F002C4F39 /* MovieGridCell.swift */,
 				485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */,
+				4862A5C6295000A200C02F73 /* YTPlayerViewController.swift */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				489DE9892746203E0055763E /* ViewController.swift in Sources */,
 				489DE9852746203E0055763E /* AppDelegate.swift in Sources */,
 				485BA226275963BD002C4F39 /* MovieDetailsViewController.swift in Sources */,
+				4862A5C7295000A200C02F73 /* YTPlayerViewController.swift in Sources */,
 				485BA2282759FC73002C4F39 /* MovieGridViewController.swift in Sources */,
 				485BA22A2759FF8F002C4F39 /* MovieGridCell.swift in Sources */,
 				489DE9872746203E0055763E /* SceneDelegate.swift in Sources */,

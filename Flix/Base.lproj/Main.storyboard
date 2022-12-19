@@ -137,21 +137,32 @@
             </objects>
             <point key="canvasLocation" x="-998.13084112149522" y="1495.4643628509721"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Hak-xu-1L1">
+        <!--Player View Controller-->
+        <scene sceneID="TH0-D9-ziG">
             <objects>
-                <viewController id="vEP-07-ny9" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8Hm-bW-Xj9">
+                <viewController id="GCm-fC-5dJ" customClass="YTPlayerViewController" customModule="Flix" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pa3-tG-RJO">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="R3D-Oa-4Jp"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <gestureRecognizers/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lv1-ph-PvE" customClass="YTPlayerView">
+                                <rect key="frame" x="0.0" y="47" width="428" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="AB6-NQ-a8G"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lv1-ph-PvE" firstAttribute="top" secondItem="AB6-NQ-a8G" secondAttribute="top" id="iwC-lj-YjY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playerView" destination="lv1-ph-PvE" id="XcR-ys-RJT"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="W2B-6e-5o4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JkS-L0-oMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-998.13084112149522" y="2190.7127429805619"/>
+            <point key="canvasLocation" x="-998.13084112149522" y="2201.7278617710585"/>
         </scene>
         <!--Movie Grid Details View Controller-->
         <scene sceneID="Zeb-2a-m5d">
