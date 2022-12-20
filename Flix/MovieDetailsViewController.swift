@@ -8,6 +8,7 @@
 import UIKit
 import AlamofireImage
 import YouTubeiOSPlayerHelper
+import Cosmos
 
 class MovieDetailsViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     //@IBOutlet weak var playerView: YTPlayerView!
+    @IBOutlet weak var ratingView: CosmosView!
     
     var movie: [String:Any]!
     
@@ -41,6 +43,10 @@ class MovieDetailsViewController: UIViewController {
         let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
         
         backdropView.af.setImage(withURL: backdropUrl!)
+        
+        let ratingNumber = movie["vote_average"] as! NSNumber
+        ratingView.text = "\(String(describing: ratingNumber))"
+        ratingView.settings.filledColor = UIColor.yellow
         
         /*
         let movieID = movie["id"]

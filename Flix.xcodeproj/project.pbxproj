@@ -13,6 +13,7 @@
 		485BA22A2759FF8F002C4F39 /* MovieGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485BA2292759FF8F002C4F39 /* MovieGridCell.swift */; };
 		485BA22C275A0D9B002C4F39 /* MovieGridDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */; };
 		4862A5C5294EA5FF00C02F73 /* YouTubeiOSPlayerHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 4862A5C4294EA5FF00C02F73 /* YouTubeiOSPlayerHelper */; };
+		487A666129515FCF00FAC5F2 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 487A666029515FCF00FAC5F2 /* Cosmos */; };
 		489DE9852746203E0055763E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9842746203E0055763E /* AppDelegate.swift */; };
 		489DE9872746203E0055763E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9862746203E0055763E /* SceneDelegate.swift */; };
 		489DE9892746203E0055763E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9882746203E0055763E /* ViewController.swift */; };
@@ -84,6 +85,7 @@
 			files = (
 				489DE9BA274712260055763E /* AlamofireImage in Frameworks */,
 				24318B0684029A0E6682271D /* Pods_Flix.framework in Frameworks */,
+				487A666129515FCF00FAC5F2 /* Cosmos in Frameworks */,
 				4862A5C5294EA5FF00C02F73 /* YouTubeiOSPlayerHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +212,7 @@
 			packageProductDependencies = (
 				489DE9B9274712260055763E /* AlamofireImage */,
 				4862A5C4294EA5FF00C02F73 /* YouTubeiOSPlayerHelper */,
+				487A666029515FCF00FAC5F2 /* Cosmos */,
 			);
 			productName = Flix;
 			productReference = 489DE9812746203E0055763E /* Flix.app */;
@@ -289,6 +292,7 @@
 			packageReferences = (
 				489DE9B8274712260055763E /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 				4862A5C3294EA5FF00C02F73 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */,
+				487A665F29515FCF00FAC5F2 /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = 489DE9822746203E0055763E /* Products */;
 			projectDirPath = "";
@@ -822,6 +826,14 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		487A665F29515FCF00FAC5F2 /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		489DE9B8274712260055763E /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/AlamofireImage";
@@ -837,6 +849,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4862A5C3294EA5FF00C02F73 /* XCRemoteSwiftPackageReference "youtube-ios-player-helper" */;
 			productName = YouTubeiOSPlayerHelper;
+		};
+		487A666029515FCF00FAC5F2 /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 487A665F29515FCF00FAC5F2 /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
 		};
 		489DE9B9274712260055763E /* AlamofireImage */ = {
 			isa = XCSwiftPackageProductDependency;

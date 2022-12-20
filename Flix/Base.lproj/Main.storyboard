@@ -117,6 +117,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="ratingView" translatesAutoresizingMaskIntoConstraints="NO" id="kBL-OI-vb6" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="140" y="360" width="278" height="29"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="heA-gC-Prj"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -125,6 +130,7 @@
                     <connections>
                         <outlet property="backdropView" destination="cse-He-4B6" id="pDf-Qu-lL4"/>
                         <outlet property="posterView" destination="jnx-gt-Z6A" id="4bS-av-SLx"/>
+                        <outlet property="ratingView" destination="kBL-OI-vb6" id="uta-U7-yvJ"/>
                         <outlet property="synopsisLabel" destination="7KA-W2-mff" id="Q2r-VX-zLs"/>
                         <outlet property="titleLabel" destination="LIq-ra-m9o" id="1Ir-Tx-Spj"/>
                     </connections>
