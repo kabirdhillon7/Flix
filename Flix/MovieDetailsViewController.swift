@@ -47,6 +47,10 @@ class MovieDetailsViewController: UIViewController {
         let ratingNumber = movie["vote_average"] as! NSNumber
         ratingView.text = "\(String(describing: ratingNumber))"
         ratingView.settings.filledColor = UIColor.yellow
+        ratingView.settings.emptyBorderColor = UIColor.yellow
+        ratingView.settings.filledImage = UIImage(named: "star.fill")
+        ratingView.settings.emptyImage = UIImage(named: "star")
+        ratingView.settings.textColor = UIColor.white
         
         /*
         let movieID = movie["id"]
