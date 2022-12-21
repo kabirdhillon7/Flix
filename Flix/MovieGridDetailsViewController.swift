@@ -7,6 +7,7 @@
 
 import UIKit
 import AlamofireImage
+import Cosmos
 
 class MovieGridDetailsViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class MovieGridDetailsViewController: UIViewController {
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
+    @IBOutlet weak var ratingView: CosmosView!
     
     var movie: [String:Any]!
     
@@ -38,6 +40,16 @@ class MovieGridDetailsViewController: UIViewController {
         let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
         
         backdropView.af.setImage(withURL: backdropUrl!)
+        
+        let ratingNumber = movie["vote_average"] as! NSNumber
+        ratingView.text = "\(String(describing: ratingNumber))"
+        ratingView.settings.filledColor = UIColor.yellow
+        ratingView.settings.emptyBorderColor = UIColor.yellow
+        ratingView.settings.filledImage = UIImage(named: "star.fill")
+        ratingView.settings.emptyImage = UIImage(named: "star")
+        ratingView.settings.textColor = UIColor.white
+        
+        
     }
     
 
