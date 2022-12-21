@@ -8,10 +8,11 @@
 import UIKit
 import AlamofireImage
 
-class MovieGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class MovieGridViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     var movies = [[String:Any]]()
 
+    //@IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -21,8 +22,8 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
         collectionView.dataSource = self
         
         // Adjusts Navigation Bar text color
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+        // let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        // navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         
