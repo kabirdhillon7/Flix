@@ -134,6 +134,9 @@
 		489DE9832746203E0055763E /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				48A36DAE295EC1D200F57AF2 /* Storyboards */,
+				48A36DAD295EC1C300F57AF2 /* ViewControllers */,
+				48A36DAC295EC1AE00F57AF2 /* ViewModels */,
 				489DE9842746203E0055763E /* AppDelegate.swift */,
 				489DE9862746203E0055763E /* SceneDelegate.swift */,
 				489DE9882746203E0055763E /* ViewController.swift */,
@@ -166,6 +169,27 @@
 				489DE9A72746203F0055763E /* FlixUITestsLaunchTests.swift */,
 			);
 			path = FlixUITests;
+			sourceTree = "<group>";
+		};
+		48A36DAC295EC1AE00F57AF2 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		48A36DAD295EC1C300F57AF2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		48A36DAE295EC1D200F57AF2 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		8C861FDDE3C47E62E1D057CF /* Frameworks */ = {
