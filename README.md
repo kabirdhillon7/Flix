@@ -2,7 +2,7 @@
 
 # Project Title
 
-Flix is an app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+Flix is an iOS app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 ## Table of Contents
 
