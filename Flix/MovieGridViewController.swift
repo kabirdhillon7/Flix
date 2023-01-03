@@ -23,8 +23,7 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegateFlowLay
         
         let superherMovieID: String = "299536"
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(superherMovieID)/similar?api_key=")!
-        let apiCaller = APICaller()
-        apiCaller.getMovies(toURL: url) { (data, error) in
+        APICaller.shared.getMovies(toURL: url) { (data, error) in
             if let error = error  {
                 print("Error getting movies: \(error.localizedDescription)")
                 return

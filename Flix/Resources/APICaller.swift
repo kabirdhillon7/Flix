@@ -11,6 +11,11 @@ class APICaller {
     
     let apiKey: String = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
     
+    // Singelton Method: creating shared instance of APICaller
+    static let shared = APICaller()
+    
+    private init() {}
+    
     // Fn to get movies
     func getMovies(toURL url: URL, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let requestUrl = URL(string: url.absoluteString + apiKey)!
