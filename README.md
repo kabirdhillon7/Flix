@@ -27,7 +27,7 @@ BONUS
 - [ ] User can view the app on various device sizes and orientations.
 - [ ] Run your app on a real device.
 - [X] User can tap a poster in the collection view to see a detail screen of that movie.
-- [ ] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+- [X] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ## Demo
 
@@ -75,6 +75,15 @@ Before you can use the app, you will need to set up your API keys. To do this, f
 ## Testing
 
 Information on how to test the project, including any automation scripts or test suites that have been set up.
+
+## Dependencies
+
+This app uses the following dependencies:
+
+- [Alamofire](https://github.com/Alamofire/Alamofire) (MIT License)
+- [Alamofire Image](https://github.com/Alamofire/AlamofireImage) (MIT License)
+- [Cosmos](https://github.com/evgenyneu/Cosmos) (MIT License)
+- [YouTube-Player-iOS-Helper](https://github.com/youtube/youtube-ios-player-helper) (Apache License 2.0)
 
 ## Contact
 
