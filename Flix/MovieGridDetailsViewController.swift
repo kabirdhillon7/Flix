@@ -17,32 +17,24 @@ class MovieGridDetailsViewController: UIViewController {
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var ratingView: CosmosView!
     
-    var movie: [String:Any]!
+    var superheroMovie: Movie!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        titleLabel.text = movie["title"] as? String
+        titleLabel.text = superheroMovie.title
         titleLabel.sizeToFit()
         
-        synopsisLabel.text = movie["overview"] as? String
+        synopsisLabel.text = superheroMovie.synopsis
         synopsisLabel.sizeToFit()
         
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        let posterUrl = URL(string: baseUrl + posterPath)
+        posterView.af.setImage(withURL: superheroMovie.posterUrl)
         
-        posterView.af.setImage(withURL: posterUrl!)
         
-        let backdropPath = movie["backdrop_path"] as! String
-        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
+        backdropView.af.setImage(withURL: superheroMovie.backdropUrl)
         
-        backdropView.af.setImage(withURL: backdropUrl!)
-        
-        let ratingNumber = movie["vote_average"] as! NSNumber
-        ratingView.text = "\(String(describing: ratingNumber))"
+        ratingView.text = "\(String(describing: superheroMovie.rating))"
         setRatingNumberSettings()
     }
     
