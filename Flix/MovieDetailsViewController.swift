@@ -16,7 +16,7 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
-    //@IBOutlet weak var playerView: YTPlayerView!
+    @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var ratingView: CosmosView!
     
     var movie: Movie!
@@ -39,12 +39,17 @@ class MovieDetailsViewController: UIViewController {
         ratingView.text = "\(String(describing: movie.rating))"
         setRatingNumberSettings()
         
-        /*
-         let movieID = movie["id"]
-         let videoes = "https://api.themoviedb.org/3/movie/\(movieID)/videos?api_key=93e318361fd7d5007c54fbedb1dc26ee&language=en-US"
-         
-         playerView.load(withVideoId: "")*/
-        
+        // Get YT key using APICaller
+        APICaller.shared.getTrailer(movieId: movie.id) { (key, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else if let key = key {
+                // Implementing DispatchQueue.main.async for UI efficency to load playerView
+                DispatchQueue.main.async {
+                    self.playerView.load(withVideoId: key)
+                }
+            }
+        }        
     }
     
     func setRatingNumberSettings() {
