@@ -13,7 +13,8 @@ class MoviesViewController: UIViewController {
     
     
     @IBOutlet weak var tableView: UITableView!
-    var movies = [[String:Any]]()
+    //var moviesDict = [[String:Any]]()
+    var movies = [Movie]()
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -32,8 +33,35 @@ class MoviesViewController: UIViewController {
                     print("Error: No results key found in data")
                     return
                 }
-                self.movies = data["results"] as! [[String:Any]]
+                if let results = data["results"] as? [[String:Any]] {
+                    for movieDictionary in results {
+                        let id = movieDictionary["id"] as! Int
+                        let title = movieDictionary["title"] as! String
+                        let synopsis = movieDictionary["overview"] as! String
+                        
+                        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
+                        let posterPath = movieDictionary["poster_path"] as! String
+                        let posterUrl = URL(string: posterBaseUrl + posterPath)
+                        
+                        let backdropBaseUrl = "https://image.tmdb.org/t/p/w780"
+                        let backdropPath = movieDictionary["backdrop_path"] as! String
+                        let backdropUrl = URL(string: backdropBaseUrl + backdropPath)
+                        
+                        let rating = movieDictionary["vote_average"] as! NSNumber
+                        
+                        let movie = Movie(id: id,
+                                          title: title,
+                                          synopsis: synopsis,
+                                          posterUrl: posterUrl!,
+                                          backdropUrl: backdropUrl!,
+                                          rating: rating)
+                        self.movies.append(movie)
+                    }
+                }
+                
+                self.movies = self.movies
                 self.tableView.reloadData()
+                
             }
         }
         
@@ -66,17 +94,10 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
         
         let movie = movies[indexPath.row]
-        let title = movie["title"] as! String
-        let synopsis = movie["overview"] as! String
         
-        cell.titleLabel!.text = title
-        cell.synopsisLabel!.text = synopsis
-        
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        let posterUrl = URL(string: baseUrl + posterPath)
-        
-        cell.posterView.af.setImage(withURL: posterUrl!)
+        cell.titleLabel!.text = movie.title
+        cell.synopsisLabel!.text = movie.synopsis
+        cell.posterView.af.setImage(withURL: movie.posterUrl)
         
         return cell
     }

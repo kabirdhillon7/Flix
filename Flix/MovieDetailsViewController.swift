@@ -19,32 +19,24 @@ class MovieDetailsViewController: UIViewController {
     //@IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var ratingView: CosmosView!
     
-    var movie: [String:Any]!
+    var movie: Movie!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
         
-        titleLabel.text = movie["title"] as? String
+        titleLabel.text = movie.title
         titleLabel.sizeToFit()
         
-        synopsisLabel.text = movie["overview"] as? String
+        synopsisLabel.text = movie.synopsis
         synopsisLabel.sizeToFit()
         
-        let baseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie["poster_path"] as! String
-        let posterUrl = URL(string: baseUrl + posterPath)
+        posterView.af.setImage(withURL: movie.posterUrl)
         
-        posterView.af.setImage(withURL: posterUrl!)
+        backdropView.af.setImage(withURL: movie.backdropUrl)
         
-        let backdropPath = movie["backdrop_path"] as! String
-        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + backdropPath)
-        
-        backdropView.af.setImage(withURL: backdropUrl!)
-        
-        let ratingNumber = movie["vote_average"] as! NSNumber
-        ratingView.text = "\(String(describing: ratingNumber))"
+        ratingView.text = "\(String(describing: movie.rating))"
         ratingView.settings.filledColor = UIColor.yellow
         ratingView.settings.emptyBorderColor = UIColor.yellow
         ratingView.settings.filledImage = UIImage(named: "star.fill")
@@ -58,16 +50,4 @@ class MovieDetailsViewController: UIViewController {
         playerView.load(withVideoId: "")*/
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
