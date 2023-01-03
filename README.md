@@ -70,7 +70,7 @@ Open the `Flix.xcworkspace` file in Xcode. Make sure that the `Flix` scheme is s
 Before you can use the app, you will need to set up your API keys. To do this, follow these steps:
 
 1. Go to https://developers.themoviedb.org/3 and sign up for an API key.
-2. In Xcode, open the `APIKeys.swift` file and replace `YOUR-API-KEY` with the API key you received.
+2. In Xcode, open the `APICaller.swift` file and replace `apiKey` with the API key you received.
 
 ## Testing
 
