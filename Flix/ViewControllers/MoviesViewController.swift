@@ -15,8 +15,6 @@ class MoviesViewController: UIViewController {
     var bindMoviesViewModelToController: (() -> ()) = {}
     
     @IBOutlet weak var tableView: UITableView!
-    //var moviesDict = [[String:Any]]()
-    //var movies = [Movie]()
     
     override func viewDidLoad(){
         super.viewDidLoad()

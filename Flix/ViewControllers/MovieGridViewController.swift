@@ -13,9 +13,6 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegateFlowLay
     private var movieGridViewModel: MoviesGridViewModel!
     var bindToMoviesGridViewModelToController: (() -> ()) = {}
     
-    //var superheroMovies = [Movie]()
-    
-    //@IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var collectionView: UICollectionView!
     
     override func viewDidLoad() {
