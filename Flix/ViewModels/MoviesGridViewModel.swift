@@ -1,5 +1,5 @@
 //
-//  MoviesViewModel.swift
+//  MoviesGridViewModel.swift
 //  Flix
 //
 //  Created by Kabir Dhillon on 1/4/23.
@@ -7,26 +7,27 @@
 
 import Foundation
 
-class MoviesViewModel: NSObject {
+class MoviesGridViewModel: NSObject {
     
-    private var apiService: APICaller!
-    private(set) var movies = [Movie]() {
+    private var apiCaller: APICaller!
+    private(set) var superheroMovies = [Movie]() {
         didSet{
-            self.bindMoviesViewModelToController()
+            self.bindToMoviesGridViewModelToController()
         }
     }
     
-    var bindMoviesViewModelToController: (() -> ()) = {}
+    var bindToMoviesGridViewModelToController: (() -> ()) = {}
     
-    init(apiService: APICaller!) {
+    init(apiCaller: APICaller) {
         super.init()
         
-        self.apiService = apiService
-        getMovieData()
+        self.apiCaller = apiCaller
+        getSuperheroMovieData()
     }
     
-    func getMovieData() {
-        let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=")!
+    func getSuperheroMovieData() {
+        let superherMovieID: String = "299536"
+        let url = URL(string:"https://api.themoviedb.org/3/movie/\(superherMovieID)/similar?api_key=")!
         APICaller.shared.getMovies(toURL: url) { (data, error) in
             if let error = error  {
                 print("Error getting movies: \(error.localizedDescription)")
@@ -58,13 +59,13 @@ class MoviesViewModel: NSObject {
                                           posterUrl: posterUrl!,
                                           backdropUrl: backdropUrl!,
                                           rating: rating)
-                        self.movies.append(movie)
+                        self.superheroMovies.append(movie)
                     }
                 }
                 
-                self.movies = self.movies
+                self.superheroMovies = self.superheroMovies
+                //self.collectionView.reloadData()
             }
         }
     }
-    
 }
