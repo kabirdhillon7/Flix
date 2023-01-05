@@ -20,7 +20,6 @@ Some of the main features include:
 - [X] User can view and scroll through a list of movies now playing in theaters.
 - [X] User can view the movie poster image for each movie.
 
-BONUS
 - [ ] User can view the app on various device sizes and orientations.
 - [ ] Run your app on a real device.
 - [X] User can tap a poster in the collection view to see a detail screen of that movie.
