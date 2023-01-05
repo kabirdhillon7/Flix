@@ -113,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4854A9232966B7CC00D11310 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				48E62B7C27471C1E00A1B083 /* MovieCell.swift */,
+				485BA2292759FF8F002C4F39 /* MovieGridCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		489DE9782746203E0055763E = {
 			isa = PBXGroup;
 			children = (
@@ -141,15 +150,10 @@
 				48CF3F122963DC7200B8F9CC /* Models */,
 				48CF3F0C2962CD2D00B8F9CC /* Resources */,
 				48CF3F0D2962CD5900B8F9CC /* Views */,
-				48A36DAE295EC1D200F57AF2 /* Storyboards */,
 				48A36DAD295EC1C300F57AF2 /* ViewControllers */,
 				48A36DAC295EC1AE00F57AF2 /* ViewModels */,
 				489DE98D2746203F0055763E /* Assets.xcassets */,
-				489DE98A2746203E0055763E /* Main.storyboard */,
 				489DE9922746203F0055763E /* Info.plist */,
-				48E62B7C27471C1E00A1B083 /* MovieCell.swift */,
-				485BA2272759FC73002C4F39 /* MovieGridViewController.swift */,
-				485BA2292759FF8F002C4F39 /* MovieGridCell.swift */,
 			);
 			path = Flix;
 			sourceTree = "<group>";
@@ -182,6 +186,7 @@
 		48A36DAD295EC1C300F57AF2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				485BA2272759FC73002C4F39 /* MovieGridViewController.swift */,
 				489DE9B42746288A0055763E /* MoviesViewController.swift */,
 				485BA225275963BD002C4F39 /* MovieDetailsViewController.swift */,
 				485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */,
@@ -192,6 +197,7 @@
 		48A36DAE295EC1D200F57AF2 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
+				489DE98A2746203E0055763E /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -209,6 +215,8 @@
 		48CF3F0D2962CD5900B8F9CC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4854A9232966B7CC00D11310 /* Cells */,
+				48A36DAE295EC1D200F57AF2 /* Storyboards */,
 				489DE98F2746203F0055763E /* LaunchScreen.storyboard */,
 			);
 			path = Views;
