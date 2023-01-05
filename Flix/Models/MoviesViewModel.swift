@@ -1,27 +1,32 @@
 //
-//  MoviesViewController.swift
+//  MoviesViewModel.swift
 //  Flix
 //
-//  Created by Kabir Dhillon on 11/17/21.
+//  Created by Kabir Dhillon on 1/4/23.
 //
 
 import Foundation
 import UIKit
-import AlamofireImage
 
-class MoviesViewController: UIViewController {
+class MoviesViewModel: NSObject {
     
+    private var apiService: APICaller!
+    private(set) var movies = [Movie]() {
+        didSet{
+            self.bindMoviesViewModelToController()
+        }
+    }
     
-    @IBOutlet weak var tableView: UITableView!
-    //var moviesDict = [[String:Any]]()
-    var movies = [Movie]()
+    var bindMoviesViewModelToController: (() -> ()) = {}
     
-    override func viewDidLoad(){
-        super.viewDidLoad()
+    init(apiService: APICaller!) {
+        super.init()
         
-        tableView.dataSource = self
-        tableView.delegate = self
-        
+        self.apiService = apiService
+        getMovieData()
+    }
+    
+    func getMovieData() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=")!
         APICaller.shared.getMovies(toURL: url) { (data, error) in
             if let error = error  {
@@ -59,45 +64,8 @@ class MoviesViewController: UIViewController {
                 }
                 
                 self.movies = self.movies
-                self.tableView.reloadData()
-                
             }
         }
-        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("Loading segue to MoviesDetailVC")
-        
-        // Find the selected movie
-        let cell = sender as! UITableViewCell
-        let indexPath = tableView.indexPath(for: cell)!
-        
-        let movie = movies[indexPath.row]
-        
-        // Pass the selected movie to the details view controller
-        let detailsViewController = segue.destination as! MovieDetailsViewController
-        detailsViewController.movie = movie
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
-}
-
-extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
-        
-        let movie = movies[indexPath.row]
-        
-        cell.titleLabel!.text = movie.title
-        cell.synopsisLabel!.text = movie.synopsis
-        cell.posterView.af.setImage(withURL: movie.posterUrl)
-        
-        return cell
-    }
 }
