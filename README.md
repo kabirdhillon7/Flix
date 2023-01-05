@@ -1,8 +1,5 @@
 # Flix
-
-# Project Title
-
-Flix is an app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+Flix is an iOS app that allows users to browse movies from the [The Movie Database API](http://docs.themoviedb.apiary.io/#).
 
 ## Table of Contents
 
@@ -27,18 +24,25 @@ BONUS
 - [ ] User can view the app on various device sizes and orientations.
 - [ ] Run your app on a real device.
 - [X] User can tap a poster in the collection view to see a detail screen of that movie.
-- [ ] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+- [X] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ## Demo
-
-### Part 1 Walkthrough
-<img src="https://github.com/kabirdhillon7/Flix/blob/main/Walktrhough.gif" width=250><br>
-
-### Part 2 Walkthrough
-<img src="https://github.com/kabirdhillon7/Flix/blob/main/Walkthrough%202.gif" width=250><br>
-
 ### Current Progress Walkthrough
 <img src="https://github.com/kabirdhillon7/Flix/blob/main/walkthrough12:22.gif" width=250><br>
+
+### Progress 2 Walkthrough
+<details>
+  <summary>Click to view</summary>
+  
+  <img src="https://github.com/kabirdhillon7/Flix/blob/main/Walkthrough%202.gif" width=250><br>
+</details>
+
+### Progress 1 Walkthrough
+<details>
+  <summary>Click to view</summary>
+  
+  <img src="https://github.com/kabirdhillon7/Flix/blob/main/Walktrhough.gif" width=250><br>
+</details>
 
 ## Installation
 
@@ -70,11 +74,20 @@ Open the `Flix.xcworkspace` file in Xcode. Make sure that the `Flix` scheme is s
 Before you can use the app, you will need to set up your API keys. To do this, follow these steps:
 
 1. Go to https://developers.themoviedb.org/3 and sign up for an API key.
-2. In Xcode, open the `APIKeys.swift` file and replace `YOUR-API-KEY` with the API key you received.
+2. In Xcode, open the `APICaller.swift` file and replace `apiKey` with the API key you received.
 
 ## Testing
 
 Information on how to test the project, including any automation scripts or test suites that have been set up.
+
+## Dependencies
+
+This app uses the following dependencies:
+
+- [Alamofire](https://github.com/Alamofire/Alamofire) (MIT License)
+- [Alamofire Image](https://github.com/Alamofire/AlamofireImage) (MIT License)
+- [Cosmos](https://github.com/evgenyneu/Cosmos) (MIT License)
+- [YouTube-Player-iOS-Helper](https://github.com/youtube/youtube-ios-player-helper) (Apache License 2.0)
 
 ## Contact
 
