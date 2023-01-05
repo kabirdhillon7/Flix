@@ -27,15 +27,22 @@ BONUS
 - [X] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
 ## Demo
-
-### Part 1 Walkthrough
-<img src="https://github.com/kabirdhillon7/Flix/blob/main/Walktrhough.gif" width=250><br>
-
-### Part 2 Walkthrough
-<img src="https://github.com/kabirdhillon7/Flix/blob/main/Walkthrough%202.gif" width=250><br>
-
 ### Current Progress Walkthrough
 <img src="https://github.com/kabirdhillon7/Flix/blob/main/walkthrough12:22.gif" width=250><br>
+
+### Progress 2 Walkthrough
+<details>
+  <summary>Click to view</summary>
+  
+  <img src="https://github.com/kabirdhillon7/Flix/blob/main/Walkthrough%202.gif" width=250><br>
+</details>
+
+### Progress 1 Walkthrough
+<details>
+  <summary>Click to view</summary>
+  
+  <img src="https://github.com/kabirdhillon7/Flix/blob/main/Walktrhough.gif" width=250><br>
+</details>
 
 ## Installation
 
