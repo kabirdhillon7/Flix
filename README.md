@@ -4,10 +4,10 @@ Flix is an iOS app that allows users to browse movies from [The Movie Database A
 ## Table of Contents
 
 - [Description](#description)
+- [Requirements](#Requirements)
 - [Demo](#demo)
 - [Installation](#installation)
 - [Testing](#testing)
-- [Release Notes](#release-notes)
 - [Contact](#contact)
 
 ## Description
@@ -24,6 +24,12 @@ Some of the main features include:
 - [ ] Run your app on a real device.
 - [X] User can tap a poster in the collection view to see a detail screen of that movie.
 - [X] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+
+## Requirements
+
+- iOS 15.0 or later
+- iPhone 6s or newer
+- iPod touch 7th generation or newer
 
 ## Demo
 ### Current Progress Walkthrough
