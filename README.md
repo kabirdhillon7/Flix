@@ -1,5 +1,5 @@
 # Flix
-Flix is an iOS app that allows users to browse movies from [The Movie Database API](http://docs.themoviedb.apiary.io/#).
+Flix is an iOS app that allows users to browse movies from [The Movie Database API](http://docs.themoviedb.apiary.io/#). Flix is designed using the Model-View-ViewModel (MVVM) pattern, which separates the app's data model, user interface, and business logic into distinct components.
 
 ## Table of Contents
 
