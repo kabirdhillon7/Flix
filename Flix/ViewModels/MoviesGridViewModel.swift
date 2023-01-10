@@ -26,7 +26,7 @@ class MoviesGridViewModel: NSObject {
     }
     
     func getSuperheroMovieData() {
-        let superherMovieID: String = "299536"
+        let superherMovieID: Int = 299536
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(superherMovieID)/similar?api_key=")!
         APICaller().getMovies(toURL: url) { (data, error) in
             if let error = error  {

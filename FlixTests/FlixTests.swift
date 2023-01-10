@@ -10,24 +10,26 @@ import XCTest
 
 class FlixTests: XCTestCase {
 
-    func testGetMovieData () {
-        /*
-         let api = APICaller.shared
-             let expectation = self.expectation(description: "API response received")
-
-             api.getMovies(toURL: "https://api.themoviedb.org/3/movie/now_playing?api_key=", completion: { (response, error) in
-                 XCTAssertNotNil(response)
-                 XCTAssertNil(error)
-                 expectation.fulfill()
-             })
-
-             waitForExpectations(timeout: 5.0, handler: nil)
-         */
+    func testGetMovieData() {
         let api = APICaller()
         let expectation = self.expectation(description: "API response recieved")
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=")
         
         api.getMovies(toURL: url!, completion: { (response, error) in
+            XCTAssertNotNil(response)
+            XCTAssertNil(error)
+            expectation.fulfill()
+        })
+        
+        waitForExpectations(timeout: 5.0, handler: nil)
+    }
+    
+    func testGetMovieTrailer() {
+        let api = APICaller()
+        let expectation = self.expectation(description: "YouTube video recieved")
+        let superheroMovieID: Int = 299536
+        
+        api.getTrailer(movieId: 299536, completion: { (response, error) in
             XCTAssertNotNil(response)
             XCTAssertNil(error)
             expectation.fulfill()
