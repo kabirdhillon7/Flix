@@ -19,7 +19,7 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegateFlowLay
         super.viewDidLoad()
         
         // Bind to MoviesGridViewModel
-        movieGridViewModel = MoviesGridViewModel(apiCaller: APICaller.shared)
+        movieGridViewModel = MoviesGridViewModel(apiCaller: APICaller())
         movieGridViewModel.bindToMoviesGridViewModelToController = { [weak self] in
             self?.collectionView.reloadData()
             

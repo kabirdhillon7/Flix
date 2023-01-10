@@ -40,7 +40,7 @@ class MovieGridDetailsViewController: UIViewController {
         setRatingNumberSettings()
         
         // Get YT key using APICaller
-        APICaller.shared.getTrailer(movieId: superheroMovie.id) { (key, error) in
+        APICaller().getTrailer(movieId: superheroMovie.id) { (key, error) in
             if let error = error {
                 print(error.localizedDescription)
             } else if let key = key {

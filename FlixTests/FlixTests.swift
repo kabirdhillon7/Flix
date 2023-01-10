@@ -23,12 +23,11 @@ class FlixTests: XCTestCase {
 
              waitForExpectations(timeout: 5.0, handler: nil)
          */
-        let api = APICaller.shared
+        let api = APICaller()
         let expectation = self.expectation(description: "API response recieved")
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=")
         
-        api.getMovies(toURL: url!,
-                      completion: { (response, error) in
+        api.getMovies(toURL: url!, completion: { (response, error) in
             XCTAssertNotNil(response)
             XCTAssertNil(error)
             expectation.fulfill()

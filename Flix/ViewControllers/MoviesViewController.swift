@@ -20,7 +20,7 @@ class MoviesViewController: UIViewController {
         super.viewDidLoad()
         
         // Bind to MoviesViewModel
-        moviesViewModel = MoviesViewModel(apiService: APICaller.shared)
+        moviesViewModel = MoviesViewModel(apiService: APICaller())
         moviesViewModel.bindMoviesViewModelToController = { [weak self] in
             self?.tableView.reloadData()
         }

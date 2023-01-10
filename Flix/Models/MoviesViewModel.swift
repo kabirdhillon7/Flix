@@ -27,7 +27,7 @@ class MoviesViewModel: NSObject {
     
     func getMovieData() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=")!
-        APICaller.shared.getMovies(toURL: url) { (data, error) in
+        APICaller().getMovies(toURL: url) { (data, error) in
             if let error = error  {
                 print("Error getting movies: \(error.localizedDescription)")
                 return
