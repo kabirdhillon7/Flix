@@ -29,7 +29,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="428" height="140"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHj-nk-DQr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHj-nk-DQr">
                                                     <rect key="frame" x="126" y="0.0" width="302" height="28.666666666666668"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
@@ -39,8 +39,8 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="125" height="140"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYP-SS-QA5">
-                                                    <rect key="frame" x="126" y="29.666666666666671" width="302" height="20.333333333333329"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYP-SS-QA5">
+                                                    <rect key="frame" x="126" y="29.666666666666664" width="302" height="110.33333333333334"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -71,10 +71,18 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="f9Q-kt-Vd2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QVL-hC-Dh1"/>
-                            <constraint firstItem="f9Q-kt-Vd2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sB8-zj-iCO"/>
-                            <constraint firstAttribute="bottom" secondItem="f9Q-kt-Vd2" secondAttribute="bottom" id="vwm-Tv-hFC"/>
-                            <constraint firstItem="f9Q-kt-Vd2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vwx-oc-KUW"/>
+                            <constraint firstItem="f9Q-kt-Vd2" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QVL-hC-Dh1">
+                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="f9Q-kt-Vd2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="sB8-zj-iCO">
+                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="bottom" secondItem="f9Q-kt-Vd2" secondAttribute="bottom" id="vwm-Tv-hFC">
+                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="f9Q-kt-Vd2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="vwx-oc-KUW">
+                                <variation key="heightClass=regular-widthClass=regular" constant="0.0"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Movies" id="8u2-Y6-VDi"/>
