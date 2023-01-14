@@ -12,7 +12,7 @@ import AlamofireImage
 class MoviesViewController: UIViewController {
     
     private var moviesViewModel: MoviesViewModel!
-    var bindMoviesViewModelToController: (() -> ()) = {}
+    //var bindMoviesViewModelToController: (() -> ()) = {}
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,6 +21,7 @@ class MoviesViewController: UIViewController {
         
         // Bind to MoviesViewModel
         moviesViewModel = MoviesViewModel(apiService: APICaller())
+        // add for DispatchQuene.async
         moviesViewModel.bindMoviesViewModelToController = { [weak self] in
             self?.tableView.reloadData()
         }
@@ -41,6 +42,8 @@ class MoviesViewController: UIViewController {
         let movie = moviesViewModel.movies[indexPath.row]
         
         // Pass the selected movie to the details view controller
+        
+        // if MDVC is complex, make VM for it. Check segue
         let detailsViewController = segue.destination as! MovieDetailsViewController
         detailsViewController.movie = movie
         
@@ -51,10 +54,11 @@ class MoviesViewController: UIViewController {
 extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return moviesViewModel.movies.count
+        moviesViewModel.movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // guard let cell, ... as? MovieCell
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell") as! MovieCell
         
         let movie = moviesViewModel.movies[indexPath.row]

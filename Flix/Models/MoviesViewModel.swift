@@ -7,19 +7,21 @@
 
 import Foundation
 
-class MoviesViewModel: NSObject {
+class MoviesViewModel {
     
-    private var apiService: APICaller!
+    // need cancelable via Combine for dataPublisher
+    
+    private let apiService: APICaller // replace w/ DS
     private(set) var movies = [Movie]() {
-        didSet{
+        didSet{ // use Combine published instead of didSet w/ Decodeable
             self.bindMoviesViewModelToController()
         }
     }
     
     var bindMoviesViewModelToController: (() -> ()) = {}
     
-    init(apiService: APICaller!) {
-        super.init()
+    // DataServicing type instead of APICaller
+    init(apiService: APICaller) {
         
         self.apiService = apiService
         getMovieData()
@@ -28,6 +30,8 @@ class MoviesViewModel: NSObject {
     func getMovieData() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=")!
         APICaller().getMovies(toURL: url) { (data, error) in
+            var movies = [Movie]()
+            // Decodable
             if let error = error  {
                 print("Error getting movies: \(error.localizedDescription)")
                 return
@@ -58,11 +62,11 @@ class MoviesViewModel: NSObject {
                                           posterUrl: posterUrl!,
                                           backdropUrl: backdropUrl!,
                                           rating: rating)
-                        self.movies.append(movie)
+                        movies.append(movie)
                     }
                 }
                 
-                self.movies = self.movies
+                self.movies = movies
             }
         }
     }

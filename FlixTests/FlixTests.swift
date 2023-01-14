@@ -9,7 +9,16 @@ import XCTest
 @testable import Flix
 
 class FlixTests: XCTestCase {
+    
+    // test cases, describe what you're testing ..  depeendcies (set, init it)
+    // then write tests
+    
+    // test code you're writing
+    // what can be tested, and test that
+    
+    // tests free from environment var
 
+    // don't test network
     func testGetMovieData() {
         let api = APICaller()
         let expectation = self.expectation(description: "API response recieved")
