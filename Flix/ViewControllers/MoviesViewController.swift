@@ -29,7 +29,7 @@ class MoviesViewController: UIViewController {
         // Table Views
         tableView.dataSource = self
         tableView.delegate = self
-        
+        //tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
