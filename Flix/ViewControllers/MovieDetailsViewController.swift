@@ -27,14 +27,20 @@ class MovieDetailsViewController: UIViewController {
         titleLabel.text = movie.title
         titleLabel.sizeToFit()
         
-        synopsisLabel.text = movie.synopsis
+        synopsisLabel.text = movie.overview
         synopsisLabel.sizeToFit()
         
-        posterView.af.setImage(withURL: movie.posterUrl)
+        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = movie.poster_path
+        let posterUrl = URL(string: posterBaseUrl + posterPath)
+        posterView.af.setImage(withURL: posterUrl!)
         
-        backdropView.af.setImage(withURL: movie.backdropUrl)
+        let backdropBaseUrl = "https://image.tmdb.org/t/p/w780"
+        let backdropPath = movie.backdrop_path
+        let backdropUrl = URL(string: backdropBaseUrl + backdropPath)
+        backdropView.af.setImage(withURL: backdropUrl!)
         
-        ratingView.text = "\(String(describing: movie.rating))"
+        ratingView.text = String(format: "%.1f", movie.vote_average)
         setRatingNumberSettings()
         
         // Get YT key using APICaller

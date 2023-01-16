@@ -22,12 +22,26 @@ class MoviesGridViewModel: NSObject {
         super.init()
         
         self.apiCaller = apiCaller
-        getSuperheroMovieData()
+        //getSuperheroMovieData()
     }
     
     func getSuperheroMovieData() {
         let superherMovieID: Int = 299536
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(superherMovieID)/similar?api_key=")!
+        
+        apiCaller.fetchMovies(toUrl: url)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Finished getting movies")
+                case .failure(let error):
+                    print("Error getting movies: \(error)")
+                }
+            } receiveValue: { [weak self] value in
+                self?.superheroMovies = value
+            }
+        /*
         APICaller().getMovies(toURL: url) { (data, error) in
             if let error = error  {
                 print("Error getting movies: \(error.localizedDescription)")
@@ -66,6 +80,6 @@ class MoviesGridViewModel: NSObject {
                 self.superheroMovies = self.superheroMovies
                 //self.collectionView.reloadData()
             }
-        }
+        }*/
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 class MoviesViewModel {
     
@@ -17,6 +18,7 @@ class MoviesViewModel {
             self.bindMoviesViewModelToController()
         }
     }
+    private var observer: Cancellable?
     
     var bindMoviesViewModelToController: (() -> ()) = {}
     
@@ -27,8 +29,30 @@ class MoviesViewModel {
         getMovieData()
     }
     
+    deinit {
+        observer?.cancel()
+    }
+    
     func getMovieData() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=")!
+        observer = apiService.fetchMovies(toUrl: url)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Finished getting movies")
+                case .failure(let error):
+                    print("Error getting movies: \(error)")
+                }
+            } receiveValue: { [weak self] value in
+                print("Value: \(value)")
+                self?.movies = value
+                //self?.observer?.cancel()
+            }
+        
+    }
+}
+        /*
         APICaller().getMovies(toURL: url) { (data, error) in
             var movies = [Movie]()
             // Decodable
@@ -68,7 +92,4 @@ class MoviesViewModel {
                 
                 self.movies = movies
             }
-        }
-    }
-    
-}
+        }*/

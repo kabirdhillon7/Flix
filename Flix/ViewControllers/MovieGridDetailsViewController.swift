@@ -28,15 +28,20 @@ class MovieGridDetailsViewController: UIViewController {
         titleLabel.text = superheroMovie.title
         titleLabel.sizeToFit()
         
-        synopsisLabel.text = superheroMovie.synopsis
+        synopsisLabel.text = superheroMovie.overview
         synopsisLabel.sizeToFit()
         
-        posterView.af.setImage(withURL: superheroMovie.posterUrl)
+        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
+        let posterPath = superheroMovie.poster_path
+        let posterUrl = URL(string: posterBaseUrl + posterPath)
+        posterView.af.setImage(withURL: posterUrl!)
         
+        let backdropBaseUrl = "https://image.tmdb.org/t/p/w780"
+        let backdropPath = superheroMovie.backdrop_path
+        let backdropUrl = URL(string: backdropBaseUrl + backdropPath)
+        backdropView.af.setImage(withURL: backdropUrl!)
         
-        backdropView.af.setImage(withURL: superheroMovie.backdropUrl)
-        
-        ratingView.text = "\(String(describing: superheroMovie.rating))"
+        ratingView.text = String(format: "%.1f", superheroMovie.vote_average)
         setRatingNumberSettings()
         
         // Get YT key using APICaller

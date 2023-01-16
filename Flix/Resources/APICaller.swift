@@ -6,7 +6,7 @@
 //
 
 import Foundation
-//import Combine
+import Combine
 
 // create protocol -- DataServicing
 // get movies and trailers
@@ -19,19 +19,20 @@ class APICaller {
     
     // Fn to get movies
     
-    /*
-    func newGetMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error> {
-        let requestUrl = URL(string: url.absoluteString + apiKey)!
-
-        return URLSession.shared.dataTaskPublisher(for: url)
-                .map { $0.data }
-                .decode(type: [Movie].self, decoder: JSONDecoder())
-                .receive(on: RunLoop.main)
-                .eraseToAnyPublisher()
-    }*/
-    
     // use decode for [String: Any]?, use result instead
     // Result<Movie, Error>     (Result<Movie, Error> -> Void)
+    func fetchMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error> {
+        let requestUrl = URL(string: url.absoluteString + apiKey)!
+        let request = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
+        
+        return URLSession.shared.dataTaskPublisher(for: request)
+            .map({ $0.data })
+            .decode(type: MovieResults.self, decoder: JSONDecoder())
+            .map({ $0.results })
+            .eraseToAnyPublisher()
+    }
+    
+    /*
     func getMovies(toURL url: URL, completion: @escaping ([String: Any]?, Error?) -> Void) {
         let requestUrl = URL(string: url.absoluteString + apiKey)!
         let request = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -57,7 +58,7 @@ class APICaller {
             }
         }
         task.resume()
-    }
+    }*/
 
     // Fn to get video
     // look over comments from prev fn
