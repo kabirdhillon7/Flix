@@ -24,7 +24,6 @@ class MoviesViewModel {
     
     // DataServicing type instead of APICaller
     init(apiService: APICaller) {
-        
         self.apiService = apiService
         getMovieData()
     }
@@ -45,11 +44,9 @@ class MoviesViewModel {
                     print("Error getting movies: \(error)")
                 }
             } receiveValue: { [weak self] value in
-                print("Value: \(value)")
+                print("Movie: \(value)")
                 self?.movies = value
-                //self?.observer?.cancel()
             }
-        
     }
 }
         /*
