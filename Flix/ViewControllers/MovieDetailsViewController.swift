@@ -46,30 +46,17 @@ class MovieDetailsViewController: UIViewController {
         ratingView.text = String(format: "%.1f", movie.vote_average)
         setRatingNumberSettings()
         
-        // Get YT key using APICaller
-        /*
-         APICaller().getTrailer(movieId: movie.id) { (key, error) in
-         if let error = error {
-         print(error.localizedDescription)
-         } else if let key = key {
-         // Implementing DispatchQueue.main.async for UI efficency to load playerView
-         DispatchQueue.main.async {
-         self.playerView.load(withVideoId: key)
-         }
-         }
-         }*/
-        
         movieTrailerObserver = APICaller().getMovieTrailer(movieId: movie.id)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:
-                    print("Finished getting movie trailer")
+                    print("Finished getting superhero movie trailer")
                 case .failure(let error):
-                    print("Error getting movietrailer: \(error)")
+                    print("Error getting superhero movie trailer: \(error)")
                 }
             } receiveValue: { [weak self] key in
-                print("Movie Trailer Key: \(key)")
+                print("Superhero Movie Trailer Key: \(key)")
                 DispatchQueue.main.async {
                     self?.playerView.load(withVideoId: key)
                 }

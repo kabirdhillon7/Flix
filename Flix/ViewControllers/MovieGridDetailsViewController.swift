@@ -9,6 +9,7 @@ import UIKit
 import AlamofireImage
 import Cosmos
 import YouTubeiOSPlayerHelper
+import Combine
 
 class MovieGridDetailsViewController: UIViewController {
     
@@ -20,6 +21,8 @@ class MovieGridDetailsViewController: UIViewController {
     @IBOutlet weak var ratingView: CosmosView!
     
     var superheroMovie: Movie!
+    
+    var movieTrailerObserver: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,16 +48,21 @@ class MovieGridDetailsViewController: UIViewController {
         setRatingNumberSettings()
         
         // Get YT key using APICaller
-        APICaller().getTrailer(movieId: superheroMovie.id) { (key, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let key = key {
-                // Implementing DispatchQueue.main.async for UI efficency to load playerView
+        movieTrailerObserver = APICaller().getMovieTrailer(movieId: superheroMovie.id)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Finished getting movie trailer")
+                case .failure(let error):
+                    print("Error getting movie trailer: \(error)")
+                }
+            } receiveValue: { [weak self] key in
+                print("Movie Trailer Key: \(key)")
                 DispatchQueue.main.async {
-                    self.playerView.load(withVideoId: key)
+                    self?.playerView.load(withVideoId: key)
                 }
             }
-        }
     }
     
     func setRatingNumberSettings() {
