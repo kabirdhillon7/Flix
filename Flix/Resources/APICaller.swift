@@ -17,7 +17,13 @@ class APICaller {
     
     let apiKey: String = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
     
-    // Fn to get movies
+    /**
+     Fetches a list of movies recently playing in theaters
+     - Parameters:
+        - movieId: the id of the specfic movie to fetch the trailer for
+     - Returns:
+        -  An AnyPublisher of a `String` representing the key for the trailer, and an `Error`
+     */
     func getMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error> {
         let requestUrl = URL(string: url.absoluteString + apiKey)!
         let request = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
@@ -29,7 +35,13 @@ class APICaller {
             .eraseToAnyPublisher()
     }
     
-    // Fn to get video
+    /**
+     Fetches movie trailer from The Movie Database API
+     - Parameters:
+        - movieId: the id of the specfic movie to fetch the trailer for
+     - Returns:
+        -  An AnyPublisher of a `String` representing the key for the trailer, and an `Error`
+     */
     func getMovieTrailer(movieId: Int) -> AnyPublisher<String, Error> {
         let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=\(apiKey)")!
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
