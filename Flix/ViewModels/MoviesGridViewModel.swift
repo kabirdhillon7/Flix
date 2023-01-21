@@ -35,7 +35,7 @@ class MoviesGridViewModel: NSObject {
         let superherMovieID: Int = 299536
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(superherMovieID)/similar?api_key=")!
         
-        observer = apiCaller.fetchMovies(toUrl: url)
+        observer = apiCaller.getMovies(toUrl: url)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {

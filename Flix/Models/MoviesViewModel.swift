@@ -34,7 +34,7 @@ class MoviesViewModel {
     
     func getMovieData() {
         let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=")!
-        observer = apiService.fetchMovies(toUrl: url)
+        observer = apiService.getMovies(toUrl: url)
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {

@@ -9,6 +9,7 @@ import UIKit
 import AlamofireImage
 import YouTubeiOSPlayerHelper
 import Cosmos
+import Combine
 
 class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var backdropView: UIImageView!
@@ -19,6 +20,8 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var ratingView: CosmosView!
     
     var movie: Movie!
+    
+    var movieTrailerObserver: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,16 +47,33 @@ class MovieDetailsViewController: UIViewController {
         setRatingNumberSettings()
         
         // Get YT key using APICaller
-        APICaller().getTrailer(movieId: movie.id) { (key, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else if let key = key {
-                // Implementing DispatchQueue.main.async for UI efficency to load playerView
+        /*
+         APICaller().getTrailer(movieId: movie.id) { (key, error) in
+         if let error = error {
+         print(error.localizedDescription)
+         } else if let key = key {
+         // Implementing DispatchQueue.main.async for UI efficency to load playerView
+         DispatchQueue.main.async {
+         self.playerView.load(withVideoId: key)
+         }
+         }
+         }*/
+        
+        movieTrailerObserver = APICaller().getMovieTrailer(movieId: movie.id)
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    print("Finished getting movie trailer")
+                case .failure(let error):
+                    print("Error getting movietrailer: \(error)")
+                }
+            } receiveValue: { [weak self] key in
+                print("Movie Trailer Key: \(key)")
                 DispatchQueue.main.async {
-                    self.playerView.load(withVideoId: key)
+                    self?.playerView.load(withVideoId: key)
                 }
             }
-        }        
     }
     
     func setRatingNumberSettings() {
