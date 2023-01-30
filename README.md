@@ -22,8 +22,8 @@ Some of the main features include:
 - [X] User can view and scroll through a list of movies now playing in theaters.
 - [X] User can view the movie poster image for each movie.
 
-- [ ] User can view the app on various device sizes and orientations.
-- [ ] Run your app on a real device.
+- [X] User can view the app on various device sizes and orientations.
+- [X] Run your app on a real device.
 - [X] User can tap a poster in the collection view to see a detail screen of that movie.
 - [X] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
 
@@ -35,7 +35,12 @@ Some of the main features include:
 
 ## Demo
 ### Current Progress Walkthrough
-<img src="https://github.com/kabirdhillon7/Flix/blob/main/walkthrough12:22.gif" width=250><br>
+<img src="https://github.com/kabirdhillon7/Flix/blob/main/Walkthrough_1.26.23.gif" width=250><br>
+
+### Progress 3 Walkthrough
+<details>
+  <img src="https://github.com/kabirdhillon7/Flix/blob/main/walkthrough12:22.gif" width=250><br>
+</details>
 
 ### Progress 2 Walkthrough
 <details>
