@@ -8,11 +8,12 @@
 import Foundation
 import UIKit
 import AlamofireImage
+import Combine
 
 class MoviesViewController: UIViewController {
     
     private var moviesViewModel: MoviesViewModel!
-    //var bindMoviesViewModelToController: (() -> ()) = {}
+    var cancellables = Set<AnyCancellable>()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,16 +22,16 @@ class MoviesViewController: UIViewController {
         
         // Bind to MoviesViewModel
         moviesViewModel = MoviesViewModel(apiService: APICaller())
-        // add for DispatchQuene.async
-        moviesViewModel.bindMoviesViewModelToController = { [weak self] in
-            self?.tableView.reloadData()
-        }
+        moviesViewModel.$movies
+           .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                self?.tableView.reloadData()
+            }
+            .store(in: &cancellables)
         
         // Table Views
         tableView.dataSource = self
         tableView.delegate = self
-//        tableView.estimatedRowHeight = 140
-//        tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
