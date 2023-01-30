@@ -33,14 +33,10 @@ class MovieDetailsViewController: UIViewController {
         synopsisLabel.text = movie.overview
         synopsisLabel.sizeToFit()
         
-        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie.poster_path
-        let posterUrl = URL(string: posterBaseUrl + posterPath)
+        let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + movie.poster_path)
         posterView.af.setImage(withURL: posterUrl!)
         
-        let backdropBaseUrl = "https://image.tmdb.org/t/p/w780"
-        let backdropPath = movie.backdrop_path
-        let backdropUrl = URL(string: backdropBaseUrl + backdropPath)
+        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + movie.backdrop_path)
         backdropView.af.setImage(withURL: backdropUrl!)
         
         ratingView.text = String(format: "%.1f", movie.vote_average)

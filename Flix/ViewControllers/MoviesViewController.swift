@@ -29,8 +29,8 @@ class MoviesViewController: UIViewController {
         // Table Views
         tableView.dataSource = self
         tableView.delegate = self
-        //tableView.rowHeight = UITableView.automaticDimension
-        //tableView.estimatedRowHeight = 140*2
+//        tableView.estimatedRowHeight = 140
+//        tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -67,11 +67,7 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel!.text = movie.title
         cell.synopsisLabel!.text = movie.overview
         
-        // Getting Poster URL
-        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie.poster_path
-        let posterUrl = URL(string: posterBaseUrl + posterPath)
-        
+        let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + movie.poster_path)
         cell.posterView.af.setImage(withURL: posterUrl!)
         
         return cell
