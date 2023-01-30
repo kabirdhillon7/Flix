@@ -30,6 +30,7 @@ class MoviesViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         //tableView.rowHeight = UITableView.automaticDimension
+        //tableView.estimatedRowHeight = 140*2
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
