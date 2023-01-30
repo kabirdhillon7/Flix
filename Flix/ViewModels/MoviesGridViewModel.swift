@@ -11,15 +11,9 @@ import Combine
 class MoviesGridViewModel: NSObject {
     
     private var apiCaller: APICaller!
-    private(set) var superheroMovies = [Movie]() {
-        didSet{
-            self.bindToMoviesGridViewModelToController()
-        }
-    }
+    @Published var superheroMovies = [Movie]()
     private var observer: Cancellable?
-    
-    var bindToMoviesGridViewModelToController: (() -> ()) = {}
-    
+        
     init(apiCaller: APICaller) {
         super.init()
         

@@ -7,11 +7,12 @@
 
 import UIKit
 import AlamofireImage
+import Combine
 
 class MovieGridViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     private var movieGridViewModel: MoviesGridViewModel!
-    var bindToMoviesGridViewModelToController: (() -> ()) = {}
+    var cancellables = Set<AnyCancellable>()
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -20,10 +21,12 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegateFlowLay
         
         // Bind to MoviesGridViewModel
         movieGridViewModel = MoviesGridViewModel(apiCaller: APICaller())
-        movieGridViewModel.bindToMoviesGridViewModelToController = { [weak self] in
-            self?.collectionView.reloadData()
-            
-        }
+        movieGridViewModel.$superheroMovies
+           .receive(on: DispatchQueue.main)
+            .sink { [weak self] value in
+                self?.collectionView.reloadData()
+            }
+            .store(in: &cancellables)
         
         // Collection View
         collectionView.delegate = self

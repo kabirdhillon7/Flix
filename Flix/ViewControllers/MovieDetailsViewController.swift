@@ -12,9 +12,7 @@ import Cosmos
 import Combine
 
 class MovieDetailsViewController: UIViewController {
-    
-    private var moviesDetailsViewModel: MovieDetailsViewModel!
-    
+        
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,14 +21,10 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var ratingView: CosmosView!
     
     var movie: Movie!
-    
     var movieTrailerObserver: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Bind to MoviesViewModel
-        
         
         // Movie Details UI Elements
         titleLabel.text = movie.title
