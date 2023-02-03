@@ -10,14 +10,14 @@ import Combine
 
 class MoviesViewModel {
         
-    private let apiService: APICaller // replace w/ DS
+    private let apiService: DataServicing // replace w/ DS
 
     @Published var movies = [Movie]()
     
     private var observer: Cancellable?
     
     // DataServicing type instead of APICaller
-    init(apiService: APICaller) {
+    init(apiService: DataServicing) {
         self.apiService = apiService
         getMovieData()
     }

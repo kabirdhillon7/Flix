@@ -21,7 +21,8 @@ class MoviesViewController: UIViewController {
         super.viewDidLoad()
         
         // Bind to MoviesViewModel
-        moviesViewModel = MoviesViewModel(apiService: APICaller())
+        let apiService: DataServicing = APICaller()
+        moviesViewModel = MoviesViewModel(apiService: apiService)
         moviesViewModel.$movies
            .receive(on: DispatchQueue.main)
             .sink { [weak self] value in

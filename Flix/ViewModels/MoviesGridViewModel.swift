@@ -10,11 +10,11 @@ import Combine
 
 class MoviesGridViewModel: NSObject {
     
-    private var apiCaller: APICaller!
+    private var apiCaller: DataServicing!
     @Published var superheroMovies = [Movie]()
     private var observer: Cancellable?
         
-    init(apiCaller: APICaller) {
+    init(apiCaller: DataServicing) {
         super.init()
         
         self.apiCaller = apiCaller

@@ -17,7 +17,12 @@ enum APIInformation: String {
     case key = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 }
 
-class APICaller {
+protocol DataServicing {
+    func getMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error>
+    func getMovieTrailer(movieId: Int) -> AnyPublisher<String, Error>
+}
+
+class APICaller: DataServicing {
     
     let apiKey = APIInformation.key
     

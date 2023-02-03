@@ -57,6 +57,7 @@ class MovieDetailsViewController: UIViewController {
                     self?.playerView.load(withVideoId: key)
                 }
             }
+        
     }
     
     func setRatingNumberSettings() {

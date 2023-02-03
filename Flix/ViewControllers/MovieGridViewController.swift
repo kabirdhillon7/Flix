@@ -20,7 +20,8 @@ class MovieGridViewController: UIViewController, UICollectionViewDelegateFlowLay
         super.viewDidLoad()
         
         // Bind to MoviesGridViewModel
-        movieGridViewModel = MoviesGridViewModel(apiCaller: APICaller())
+        let apiService: DataServicing = APICaller()
+        movieGridViewModel = MoviesGridViewModel(apiCaller: apiService)
         movieGridViewModel.$superheroMovies
            .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
