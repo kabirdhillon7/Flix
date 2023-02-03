@@ -6,11 +6,24 @@
 //
 
 import XCTest
+import Combine
+@testable import Flix
 
 final class MoviesGridViewModelTests: XCTestCase {
+    
+    private var moviesGridVM: MoviesGridViewModel!
+    private var apiService: MockAPIService!
+    
+    func testGetSuperheroMovieData() {
+        moviesGridVM.getSuperheroMovieData()
+        XCTAssertNotNil(moviesGridVM.superheroMovies)
+        XCTAssertTrue(moviesGridVM.superheroMovies.isEmpty)
+    }
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        apiService = MockAPIService()
+        moviesGridVM = MoviesGridViewModel(apiCaller: apiService)
     }
 
     override func tearDownWithError() throws {
