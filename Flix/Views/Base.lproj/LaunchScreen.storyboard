@@ -17,19 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="omG-Te-9Un">
-                                <rect key="frame" x="138" y="378.5" width="138" height="139"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="flix_launch_image" translatesAutoresizingMaskIntoConstraints="NO" id="9lM-eY-orf">
+                                <rect key="frame" x="132" y="373" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="omG-Te-9Un" secondAttribute="height" multiplier="138:139" id="H1g-qN-YdK"/>
+                                    <constraint firstAttribute="height" constant="150" id="63w-B3-bFu"/>
+                                    <constraint firstAttribute="width" constant="150" id="hP4-UH-IPF"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="omG-Te-9Un" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="GhL-Yu-sUr"/>
-                            <constraint firstItem="omG-Te-9Un" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="KvG-Sa-OMm"/>
-                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -38,7 +35,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch_image" width="138" height="139"/>
+        <image name="flix_launch_image" width="100" height="100"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

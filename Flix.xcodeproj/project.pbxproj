@@ -149,6 +149,7 @@
 		489DE9832746203E0055763E /* Flix */ = {
 			isa = PBXGroup;
 			children = (
+				48FB9A4C298C9D3E00A07362 /* Networking */,
 				48CF3F122963DC7200B8F9CC /* Models */,
 				48CF3F0C2962CD2D00B8F9CC /* Resources */,
 				48CF3F0D2962CD5900B8F9CC /* Views */,
@@ -210,7 +211,6 @@
 			children = (
 				489DE9842746203E0055763E /* AppDelegate.swift */,
 				489DE9862746203E0055763E /* SceneDelegate.swift */,
-				48CF3F102963C09900B8F9CC /* APICaller.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -231,6 +231,14 @@
 				48CF3F132963DC8A00B8F9CC /* Movie.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		48FB9A4C298C9D3E00A07362 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				48CF3F102963C09900B8F9CC /* APICaller.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		8C861FDDE3C47E62E1D057CF /* Frameworks */ = {
