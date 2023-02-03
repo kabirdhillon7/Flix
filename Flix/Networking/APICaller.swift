@@ -13,9 +13,13 @@ import Combine
 // class conforms to DS
 // diff responses for testing
 
+enum APIInformation: String {
+    case key = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+}
+
 class APICaller {
     
-    let apiKey: String = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
+    let apiKey = APIInformation.key
     
     /**
      Fetches a list of movies recently playing in theaters
@@ -25,7 +29,9 @@ class APICaller {
         -  An AnyPublisher of a `String` representing the key for the trailer, and an `Error`
      */
     func getMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error> {
-        let requestUrl = URL(string: url.absoluteString + apiKey)!
+        guard let requestUrl = URL(string: url.absoluteString + apiKey.rawValue) else {
+            return Fail(error: NSError(domain: "Invalid url", code: 0)).eraseToAnyPublisher()
+        }
         let request = URLRequest(url: requestUrl, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
         return URLSession.shared.dataTaskPublisher(for: request)
@@ -43,7 +49,9 @@ class APICaller {
         -  An AnyPublisher of a `String` representing the key for the trailer, and an `Error`
      */
     func getMovieTrailer(movieId: Int) -> AnyPublisher<String, Error> {
-        let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=\(apiKey)")!
+        guard let url = URL(string: "https://api.themoviedb.org/3/movie/\(movieId)/videos?api_key=\(apiKey.rawValue)") else {
+            return Fail(error: NSError(domain: "Invalid url", code: 0)).eraseToAnyPublisher()
+        }
         let request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 10)
         
         return URLSession.shared.dataTaskPublisher(for: request)
