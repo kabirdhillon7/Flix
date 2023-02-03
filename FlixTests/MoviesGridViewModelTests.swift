@@ -1,36 +1,13 @@
 //
-//  MoviesViewModelTests.swift
+//  MoviesGridViewModelTests.swift
 //  FlixTests
 //
 //  Created by Kabir Dhillon on 2/2/23.
 //
 
 import XCTest
-import Combine
-@testable import Flix
 
-class MockAPIService: APICaller {
-    override func getMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error> {
-        return Result.Publisher([]).eraseToAnyPublisher()
-    }
-}
-
-final class MoviesViewModelTests: XCTestCase {
-    
-    private var moviesVM: MoviesViewModel!
-    private var apiService: MockAPIService!
-    
-    override func setUp() {
-        super.setUp()
-        apiService = MockAPIService()
-        moviesVM = MoviesViewModel(apiService: apiService)
-    }
-    
-    func testGetMovieData() {
-        moviesVM.getMovieData()
-        XCTAssertNotNil(moviesVM.movies)
-        XCTAssertTrue(moviesVM.movies.isEmpty)
-    }
+final class MoviesGridViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
