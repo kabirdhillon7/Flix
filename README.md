@@ -25,7 +25,7 @@ Some of the main features include:
 - [X] User can view the app on various device sizes and orientations.
 - [X] Run your app on a real device.
 - [X] User can tap a poster in the collection view to see a detail screen of that movie.
-- [X] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+- [X] In the detail view, when the user taps the YouTube Player View they can view the trailer.
 
 ## Requirements
 
@@ -86,7 +86,7 @@ Open the `Flix.xcworkspace` file in Xcode. Make sure that the `Flix` scheme is s
 Before you can use the app, you will need to set up your API keys. To do this, follow these steps:
 
 1. Go to https://developers.themoviedb.org/3 and sign up for an API key.
-2. In Xcode, open the `APICaller.swift` file and replace `apiKey` with the API key you received.
+2. In Xcode, open the `APICaller.swift` file and replace `key` with the API key you received.
 
 ## Testing
 
