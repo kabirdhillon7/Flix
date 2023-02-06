@@ -69,8 +69,11 @@ extension MoviesViewController: UITableViewDataSource, UITableViewDelegate {
         cell.titleLabel!.text = movie.title
         cell.synopsisLabel!.text = movie.overview
         
-        let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + movie.poster_path)
-        cell.posterView.af.setImage(withURL: posterUrl!)
+        guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + movie.poster_path) else {
+            print("Unable to get posterUrl")
+            return UITableViewCell()
+        }
+        cell.posterView.af.setImage(withURL: posterUrl)
         
         return cell
     }

@@ -58,10 +58,11 @@ extension MovieGridViewController: UICollectionViewDataSource, UICollectionViewD
         let movie = movieGridViewModel.superheroMovies[indexPath.item]
         
         // Getting Poster Url
-        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = movie.poster_path
-        let posterUrl = URL(string: posterBaseUrl + posterPath)
-        cell.posterView.af.setImage(withURL: posterUrl!)
+        guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + movie.poster_path) else {
+            print("Unable to get posterUrl for CollectionView Grid")
+            return UICollectionViewCell()
+        }
+        cell.posterView.af.setImage(withURL: posterUrl)
         
         return cell
     }
