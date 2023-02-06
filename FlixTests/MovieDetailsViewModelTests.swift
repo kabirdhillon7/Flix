@@ -1,43 +1,48 @@
 //
-//  MoviesViewModelTests.swift
+//  MovieDetailsViewModelTests.swift
 //  FlixTests
 //
-//  Created by Kabir Dhillon on 2/2/23.
+//  Created by Kabir Dhillon on 2/5/23.
 //
 
 import XCTest
 import Combine
 @testable import Flix
 
-class MockAPIService: APICaller {
+final class MovieDetailsViewModelTests: XCTestCase {
     
-    var cancellables = Set<AnyCancellable>()
-    
-    override func getMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error> {
-        return Result.Publisher([]).eraseToAnyPublisher()
-    }
-    
-    override func getMovieTrailer(movieId: Int) -> AnyPublisher<String, Error> {
-        return Result.Publisher("abc123").eraseToAnyPublisher()
-    }
-}
-
-final class MoviesViewModelTests: XCTestCase {
-    
-    private var moviesVM: MoviesViewModel!
+    private var movieDetailVM: MovieDetailsViewModel!
     private var apiService: MockAPIService!
     
     override func setUp() {
         super.setUp()
         apiService = MockAPIService()
-        moviesVM = MoviesViewModel(apiService: apiService)
+        movieDetailVM = MovieDetailsViewModel(apiService: apiService, movieId: 1)
     }
     
-    func testGetMovieData() {
-        moviesVM.getMovieData()
-        XCTAssertNotNil(moviesVM.movies)
-        XCTAssertTrue(moviesVM.movies.isEmpty)
+    func testGetTrailerData() {
+        // Given
+        let expectedMovieTrailerKey = "abc123"
+        let movieTrailerKey = expectation(description: "Movie Trailer Key")
+        
+        // When
+        apiService.getMovieTrailer(movieId: 1)
+            .sink(receiveCompletion: { _ in }, receiveValue: { [self] trailerKey in
+                movieDetailVM.movieTrailerKey = trailerKey
+                movieTrailerKey.fulfill()
+            })
+            .store(in: &apiService.cancellables)
+        
+        waitForExpectations(timeout: 5) { [self] (error) in
+            if let error = error {
+                XCTFail("Error: \(error.localizedDescription)")
+            }
+            
+            // Assert
+            XCTAssertEqual(movieDetailVM.movieTrailerKey, expectedMovieTrailerKey)
+        }
     }
+    
     
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
