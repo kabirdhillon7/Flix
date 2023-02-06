@@ -24,7 +24,7 @@ Some of the main features include:
 
 - [X] User can view the app on various device sizes and orientations.
 - [X] Run your app on a real device.
-- [X] User can tap a poster in the collection view to see a detail screen of that movie.
+- [X] User can tap a poster in the collection view to see a detail screen of that movie, including its plot summary.
 - [X] In the detail view, when the user taps the YouTube Player View they can view the trailer.
 
 ## Requirements
