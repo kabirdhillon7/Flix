@@ -12,7 +12,7 @@ import Cosmos
 import Combine
 
 class MovieDetailsViewController: UIViewController {
-        
+    
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -20,11 +20,25 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var ratingView: CosmosView!
     
+    var movieDetailVM: MovieDetailsViewModel!
+    var cancellables = Set<AnyCancellable>()
+    
     var movie: Movie!
-    var movieTrailerObserver: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Bind to ViewModel
+        let apiService: DataServicing = APICaller()
+        movieDetailVM = MovieDetailsViewModel(apiService: apiService, movieId: movie.id)
+        movieDetailVM.$movieTrailerKey
+            .receive(on: DispatchQueue.global(qos: .background))
+            .sink { [weak self] value in
+                DispatchQueue.main.async {
+                    self?.playerView.load(withVideoId: value)
+                }
+            }
+            .store(in: &cancellables)
         
         // Movie Details UI Elements
         titleLabel.text = movie.title
@@ -33,30 +47,25 @@ class MovieDetailsViewController: UIViewController {
         synopsisLabel.text = movie.overview
         synopsisLabel.sizeToFit()
         
-        let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + movie.poster_path)
-        posterView.af.setImage(withURL: posterUrl!)
+        guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + movie.poster_path) else {
+            print("Unable to get posterUrl")
+            return
+        }
+        posterView.af.setImage(withURL: posterUrl)
         
-        let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + movie.backdrop_path)
-        backdropView.af.setImage(withURL: backdropUrl!)
+        guard let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + movie.backdrop_path) else {
+            print("Unable to get backdropUrl")
+            return
+        }
+        backdropView.af.setImage(withURL: backdropUrl)
         
         ratingView.text = String(format: "%.1f", movie.vote_average)
         setRatingNumberSettings()
-        
-        movieTrailerObserver = APICaller().getMovieTrailer(movieId: movie.id)
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    print("Finished getting superhero movie trailer")
-                case .failure(let error):
-                    print("Error getting superhero movie trailer: \(error)")
-                }
-            } receiveValue: { [weak self] key in
-                print("Superhero Movie Trailer Key: \(key)")
-                DispatchQueue.main.async {
-                    self?.playerView.load(withVideoId: key)
-                }
-            }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        movieDetailVM.observer?.cancel()
         
     }
     

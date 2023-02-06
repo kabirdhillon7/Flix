@@ -8,11 +8,6 @@
 import Foundation
 import Combine
 
-// create protocol -- DataServicing
-// get movies and trailers
-// class conforms to DS
-// diff responses for testing
-
 enum APIInformation: String {
     case key = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 }
