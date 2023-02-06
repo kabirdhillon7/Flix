@@ -111,6 +111,10 @@ This file contains tests for the `MoviesViewModel`. The tests check if the `View
 
 This file contains tests for the `MoviesGridViewModel`. The tests check if the `ViewModel` is able to retrieve superhero movie data correctly and if the `ViewModel` is correctly handling the data.
 
+#### MovieDetailsViewModelTests
+
+This file contains tests for the `MovieDetailsViewModel`. The tests check if the `ViewModel` is able to retrieve superhero movie data correctly and if the `ViewModel` is correctly handling the data.
+
 ## Dependencies
 
 This app uses the following dependencies:
