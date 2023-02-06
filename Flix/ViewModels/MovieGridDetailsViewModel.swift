@@ -9,14 +9,11 @@ import Foundation
 import Combine
 
 class MovieGridDetailsViewModel {
-    // API Service, observer, trailerKey
     private let apiService: DataServicing
     var observer: Cancellable?
     
     @Published var superheroMovieTrailerKey: String = ""
     
-    // init: super, call fn for trailer, apiService
-    // deinit, cancel observer
     init(apiService: DataServicing, movieId: Int) {
         self.apiService = apiService
         getSuperheroMovieTrailerKey(movieID: movieId)
@@ -26,7 +23,6 @@ class MovieGridDetailsViewModel {
         observer?.cancel()
     }
     
-    // func for trailer
     func getSuperheroMovieTrailerKey(movieID: Int) {
         observer = apiService.getMovieTrailer(movieId: movieID)
             .receive(on: DispatchQueue.global(qos: .background))
