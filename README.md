@@ -10,6 +10,7 @@ Flix is designed using the Model-View-ViewModel (MVVM) pattern, which separates 
 - [Demo](#demo)
 - [Installation](#installation)
 - [Testing](#testing)
+- [Dependencies](#dependencies)
 - [Contact](#contact)
 
 ## Description
