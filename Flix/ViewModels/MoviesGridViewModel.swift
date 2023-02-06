@@ -13,7 +13,7 @@ class MoviesGridViewModel: NSObject {
     private var apiCaller: DataServicing!
     @Published var superheroMovies = [Movie]()
     private var observer: Cancellable?
-        
+    
     init(apiCaller: DataServicing) {
         super.init()
         
@@ -26,7 +26,7 @@ class MoviesGridViewModel: NSObject {
     }
     
     func getSuperheroMovieData() {
-        let superherMovieID: Int = 299536
+        let superherMovieID: Int = 24428
         let url = URL(string:"https://api.themoviedb.org/3/movie/\(superherMovieID)/similar?api_key=")!
         
         observer = apiCaller.getMovies(toUrl: url)

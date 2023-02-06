@@ -20,12 +20,27 @@ class MovieGridDetailsViewController: UIViewController {
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var ratingView: CosmosView!
     
+    var movieGridDetailViewModel: MovieGridDetailsViewModel!
+    var cancellables = Set<AnyCancellable>()
+    
     var superheroMovie: Movie!
     
     var movieTrailerObserver: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Bind to ViewModel
+        let apiService: DataServicing = APICaller()
+        movieGridDetailViewModel = MovieGridDetailsViewModel(apiService: apiService, movieId: superheroMovie.id)
+        movieGridDetailViewModel.$superheroMovieTrailerKey
+            .receive(on: DispatchQueue.global(qos: .background))
+            .sink { [weak self] value in
+                DispatchQueue.main.async {
+                    self?.playerView.load(withVideoId: value)
+                }
+            }
+            .store(in: &cancellables)
         
         // Do any additional setup after loading the view.
         titleLabel.text = superheroMovie.title
@@ -34,35 +49,24 @@ class MovieGridDetailsViewController: UIViewController {
         synopsisLabel.text = superheroMovie.overview
         synopsisLabel.sizeToFit()
         
-        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
-        let posterPath = superheroMovie.poster_path
-        let posterUrl = URL(string: posterBaseUrl + posterPath)
-        posterView.af.setImage(withURL: posterUrl!)
+//        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
+//        let posterPath = superheroMovie.poster_path
+        guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + superheroMovie.poster_path) else {
+            print("Unable to get superhero posterUrl")
+            return
+        }
+        posterView.af.setImage(withURL: posterUrl)
         
-        let backdropBaseUrl = "https://image.tmdb.org/t/p/w780"
-        let backdropPath = superheroMovie.backdrop_path
-        let backdropUrl = URL(string: backdropBaseUrl + backdropPath)
-        backdropView.af.setImage(withURL: backdropUrl!)
+//        let backdropBaseUrl = "https://image.tmdb.org/t/p/w780"
+//        let backdropPath = superheroMovie.backdrop_path
+        guard let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + superheroMovie.backdrop_path) else {
+            print("Unable to get superhero backdropUrl")
+            return
+        }
+        backdropView.af.setImage(withURL: backdropUrl)
         
         ratingView.text = String(format: "%.1f", superheroMovie.vote_average)
         setRatingNumberSettings()
-        
-        // Get YT key using APICaller
-        movieTrailerObserver = APICaller().getMovieTrailer(movieId: superheroMovie.id)
-            .receive(on: DispatchQueue.main)
-            .sink { completion in
-                switch completion {
-                case .finished:
-                    print("Finished getting movie trailer")
-                case .failure(let error):
-                    print("Error getting movie trailer: \(error)")
-                }
-            } receiveValue: { [weak self] key in
-                print("Movie Trailer Key: \(key)")
-                DispatchQueue.main.async {
-                    self?.playerView.load(withVideoId: key)
-                }
-            }
     }
     
     func setRatingNumberSettings() {
@@ -72,5 +76,4 @@ class MovieGridDetailsViewController: UIViewController {
         ratingView.settings.emptyImage = UIImage(named: "star")
         ratingView.settings.textColor = UIColor.white
     }
-    
 }
