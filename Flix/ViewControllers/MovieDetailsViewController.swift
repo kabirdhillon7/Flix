@@ -13,15 +13,15 @@ import Combine
 
 class MovieDetailsViewController: UIViewController {
     
+    var movieDetailViewModel: MovieDetailsViewModel!
+    var cancellables = Set<AnyCancellable>()
+    
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var synopsisLabel: UILabel!
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var ratingView: CosmosView!
-    
-    var movieDetailVM: MovieDetailsViewModel!
-    var cancellables = Set<AnyCancellable>()
     
     var movie: Movie!
     
@@ -30,8 +30,8 @@ class MovieDetailsViewController: UIViewController {
         
         // Bind to ViewModel
         let apiService: DataServicing = APICaller()
-        movieDetailVM = MovieDetailsViewModel(apiService: apiService, movieId: movie.id)
-        movieDetailVM.$movieTrailerKey
+        movieDetailViewModel = MovieDetailsViewModel(apiService: apiService, movieId: movie.id)
+        movieDetailViewModel.$movieTrailerKey
             .receive(on: DispatchQueue.global(qos: .background))
             .sink { [weak self] value in
                 DispatchQueue.main.async {
@@ -65,7 +65,7 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        movieDetailVM.observer?.cancel()
+        movieDetailViewModel.observer?.cancel()
         
     }
     

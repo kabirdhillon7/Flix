@@ -12,7 +12,7 @@ import Combine
 final class MoviesGridViewModelTests: XCTestCase {
     
     private var moviesGridVM: MoviesGridViewModel!
-    private var apiService: MockAPIService!
+    private var mockAPIService: MockAPIService!
     
     func testGetSuperheroMovieData() {
         moviesGridVM.getSuperheroMovieData()
@@ -22,8 +22,8 @@ final class MoviesGridViewModelTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
-        apiService = MockAPIService()
-        moviesGridVM = MoviesGridViewModel(apiCaller: apiService)
+        mockAPIService = MockAPIService()
+        moviesGridVM = MoviesGridViewModel(apiCaller: mockAPIService)
     }
 
     override func tearDownWithError() throws {

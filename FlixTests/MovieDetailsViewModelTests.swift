@@ -12,12 +12,12 @@ import Combine
 final class MovieDetailsViewModelTests: XCTestCase {
     
     private var movieDetailVM: MovieDetailsViewModel!
-    private var apiService: MockAPIService!
+    private var mockAPIService: MockAPIService!
     
     override func setUp() {
         super.setUp()
-        apiService = MockAPIService()
-        movieDetailVM = MovieDetailsViewModel(apiService: apiService, movieId: 1)
+        mockAPIService = MockAPIService()
+        movieDetailVM = MovieDetailsViewModel(apiService: mockAPIService, movieId: 1)
     }
     
     func testGetTrailerData() {
@@ -26,12 +26,12 @@ final class MovieDetailsViewModelTests: XCTestCase {
         let movieTrailerKey = expectation(description: "Movie Trailer Key")
         
         // When
-        apiService.getMovieTrailer(movieId: 1)
+        mockAPIService.getMovieTrailer(movieId: 1)
             .sink(receiveCompletion: { _ in }, receiveValue: { [self] trailerKey in
                 movieDetailVM.movieTrailerKey = trailerKey
                 movieTrailerKey.fulfill()
             })
-            .store(in: &apiService.cancellables)
+            .store(in: &mockAPIService.cancellables)
         
         waitForExpectations(timeout: 5) { [self] (error) in
             if let error = error {

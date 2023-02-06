@@ -25,12 +25,12 @@ class MockAPIService: APICaller {
 final class MoviesViewModelTests: XCTestCase {
     
     private var moviesVM: MoviesViewModel!
-    private var apiService: MockAPIService!
+    private var mockAPIService: MockAPIService!
     
     override func setUp() {
         super.setUp()
-        apiService = MockAPIService()
-        moviesVM = MoviesViewModel(apiService: apiService)
+        mockAPIService = MockAPIService()
+        moviesVM = MoviesViewModel(apiService: mockAPIService)
     }
     
     func testGetMovieData() {
