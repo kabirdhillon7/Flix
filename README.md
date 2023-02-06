@@ -25,7 +25,7 @@ Some of the main features include:
 - [X] User can view the app on various device sizes and orientations.
 - [X] Run your app on a real device.
 - [X] User can tap a poster in the collection view to see a detail screen of that movie.
-- [X] In the detail view, when the user taps the poster, a new screen is presented modally where they can view the trailer.
+- [X] In the detail view, when the user taps the YouTube Player View they can view the trailer.
 
 ## Requirements
 
@@ -86,11 +86,30 @@ Open the `Flix.xcworkspace` file in Xcode. Make sure that the `Flix` scheme is s
 Before you can use the app, you will need to set up your API keys. To do this, follow these steps:
 
 1. Go to https://developers.themoviedb.org/3 and sign up for an API key.
-2. In Xcode, open the `APICaller.swift` file and replace `apiKey` with the API key you received.
+2. In Xcode, open the `APICaller.swift` file and replace `key` with the API key you received.
 
 ## Testing
 
-Information on how to test the project, including any automation scripts or test suites that have been set up.
+In order to test the functionality of this project, I have set up test cases for the `ViewModels`. The test cases check if the `ViewModels` are able to retrieve the data and handle the data correctly.
+
+To run the tests, open the project in Xcode, then go to the `Product` menu and select `Test` or use the `⌘ + U` keyboard shortcut.
+
+### Test Dependencies
+The tests use the following dependencies:
+
+- [XCTest](https://developer.apple.com/documentation/xctest): A framework provided by Apple that allows us to write tests for our iOS code.
+- [Combine](https://developer.apple.com/documentation/combine): A framework provided by Apple for handling asynchronous code.
+
+### Test Files
+There are two test files in the project:
+
+#### MoviesViewModelTests
+
+This file contains tests for the `MoviesViewModel`. The tests check if the `ViewModel` is able to retrieve movie data correctly and if the `ViewModel` is correctly handling the data.
+
+#### MoviesGridTests
+
+This file contains tests for the `MoviesGridViewModel`. The tests check if the `ViewModel` is able to retrieve superhero movie data correctly and if the `ViewModel` is correctly handling the data.
 
 ## Dependencies
 
