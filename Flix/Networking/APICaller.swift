@@ -8,15 +8,18 @@
 import Foundation
 import Combine
 
+// Enum that stores API key information
 enum APIInformation: String {
     case key = "a07e22bc18f5cb106bfe4cc1f83ad8ed"
 }
 
+/// Protocol for DataServicing
 protocol DataServicing {
     func getMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error>
     func getMovieTrailer(movieId: Int) -> AnyPublisher<String, Error>
 }
 
+/// Class responsible for making API calls
 class APICaller: DataServicing {
     
     let apiKey = APIInformation.key
