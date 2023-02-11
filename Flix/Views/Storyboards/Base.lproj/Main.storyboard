@@ -45,7 +45,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYP-SS-QA5">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZYP-SS-QA5">
                                                             <rect key="frame" x="0.0" y="26.333333333333336" width="302" height="113.66666666666666"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
@@ -294,7 +294,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ybg-gj-IzK">
-                                <rect key="frame" x="-3" y="-5" width="428" height="925"/>
+                                <rect key="frame" x="-3" y="-6" width="428" height="926"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qIW-Yf-fh6">
@@ -342,7 +342,7 @@
         <scene sceneID="pYp-0B-VdE">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tD2-lj-DbQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Now Playing" image="now_playing_tabbar_item" id="cry-m5-neX"/>
+                    <tabBarItem key="tabBarItem" title="Now Playing" image="film" catalog="system" id="cry-m5-neX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="rOH-gu-zNq">
                         <rect key="frame" x="0.0" y="47" width="428" height="96"/>
@@ -361,7 +361,7 @@
         <scene sceneID="oqD-mM-Xhp">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GJR-2y-8sh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Superhero" image="superhero_tabbar_item" id="4rA-0f-cBa"/>
+                    <tabBarItem key="tabBarItem" title="Superhero" image="bolt" catalog="system" id="4rA-0f-cBa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="mQS-9K-86i">
                         <rect key="frame" x="0.0" y="47" width="428" height="96"/>
@@ -378,8 +378,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="now_playing_tabbar_item" width="21" height="21"/>
-        <image name="superhero_tabbar_item" width="21" height="23"/>
+        <image name="bolt" catalog="system" width="100" height="128"/>
+        <image name="film" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

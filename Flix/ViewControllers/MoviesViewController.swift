@@ -24,7 +24,7 @@ class MoviesViewController: UIViewController {
         let apiService: DataServicing = APICaller()
         moviesViewModel = MoviesViewModel(apiService: apiService)
         moviesViewModel.$movies
-           .receive(on: DispatchQueue.main)
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 self?.tableView.reloadData()
             }
@@ -34,7 +34,7 @@ class MoviesViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("Loading segue to MoviesDetailVC")
         
