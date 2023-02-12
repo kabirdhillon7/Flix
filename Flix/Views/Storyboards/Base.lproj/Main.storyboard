@@ -212,8 +212,8 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jmv-cm-gZy">
                                 <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B9b-2w-MeJ">
-                                        <rect key="frame" x="0.0" y="-143" width="428" height="683"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B9b-2w-MeJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="683"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fWB-eR-Z1X">
                                                 <rect key="frame" x="0.0" y="0.0" width="428" height="208"/>
@@ -267,11 +267,11 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="B9b-2w-MeJ" firstAttribute="width" secondItem="Jmv-cm-gZy" secondAttribute="width" id="4yQ-VC-JPi"/>
-                                    <constraint firstAttribute="trailing" secondItem="B9b-2w-MeJ" secondAttribute="trailing" id="6eV-dN-JpA"/>
-                                    <constraint firstItem="B9b-2w-MeJ" firstAttribute="top" secondItem="Jmv-cm-gZy" secondAttribute="top" id="Khd-gJ-ouL"/>
-                                    <constraint firstItem="B9b-2w-MeJ" firstAttribute="leading" secondItem="Jmv-cm-gZy" secondAttribute="leading" id="VSa-i0-Ppk"/>
-                                    <constraint firstAttribute="bottom" secondItem="B9b-2w-MeJ" secondAttribute="bottom" id="fUs-Tb-Ok7"/>
+                                    <constraint firstAttribute="trailing" secondItem="B9b-2w-MeJ" secondAttribute="trailing" id="55G-LD-Sj3"/>
+                                    <constraint firstItem="B9b-2w-MeJ" firstAttribute="width" secondItem="Jmv-cm-gZy" secondAttribute="width" id="Qss-RH-nDH"/>
+                                    <constraint firstItem="B9b-2w-MeJ" firstAttribute="leading" secondItem="Jmv-cm-gZy" secondAttribute="leading" id="cgo-Uf-jxF"/>
+                                    <constraint firstAttribute="bottom" secondItem="B9b-2w-MeJ" secondAttribute="bottom" id="huV-Ne-7Hr"/>
+                                    <constraint firstItem="B9b-2w-MeJ" firstAttribute="top" secondItem="Jmv-cm-gZy" secondAttribute="top" id="ihX-WR-bmb"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="3xk-SZ-AIN"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Udn-0z-VeS"/>
@@ -280,10 +280,10 @@
                         <viewLayoutGuide key="safeArea" id="ivT-0a-0sM"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="Jmv-cm-gZy" secondAttribute="bottom" id="CsD-c1-8dw"/>
-                            <constraint firstItem="Jmv-cm-gZy" firstAttribute="top" secondItem="EVs-UN-0df" secondAttribute="top" id="Grc-nV-qjQ"/>
-                            <constraint firstItem="Jmv-cm-gZy" firstAttribute="leading" secondItem="ivT-0a-0sM" secondAttribute="leading" id="PfZ-dE-K9U"/>
-                            <constraint firstItem="Jmv-cm-gZy" firstAttribute="trailing" secondItem="ivT-0a-0sM" secondAttribute="trailing" id="VoJ-fn-6cn"/>
+                            <constraint firstItem="Jmv-cm-gZy" firstAttribute="leading" secondItem="ivT-0a-0sM" secondAttribute="leading" id="4sM-6R-3VN"/>
+                            <constraint firstAttribute="bottom" secondItem="Jmv-cm-gZy" secondAttribute="bottom" id="6EB-Kz-KEZ"/>
+                            <constraint firstItem="ivT-0a-0sM" firstAttribute="trailing" secondItem="Jmv-cm-gZy" secondAttribute="trailing" id="mep-ms-LIi"/>
+                            <constraint firstItem="Jmv-cm-gZy" firstAttribute="top" secondItem="EVs-UN-0df" secondAttribute="top" id="ned-Rb-dOU"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="FHB-F4-vhY"/>
