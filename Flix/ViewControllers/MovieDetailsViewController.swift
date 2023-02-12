@@ -16,6 +16,9 @@ class MovieDetailsViewController: UIViewController {
     var movieDetailViewModel: MovieDetailsViewModel!
     var cancellables = Set<AnyCancellable>()
     
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -39,6 +42,11 @@ class MovieDetailsViewController: UIViewController {
                 }
             }
             .store(in: &cancellables)
+        
+        // Scroll View
+        let contentWidth = scrollView.bounds.width
+        let contentHeight = scrollView.bounds.height * 3
+        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
         
         // Movie Details UI Elements
         titleLabel.text = movie.title
