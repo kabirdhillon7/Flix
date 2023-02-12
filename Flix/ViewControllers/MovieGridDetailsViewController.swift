@@ -13,6 +13,8 @@ import Combine
 
 class MovieGridDetailsViewController: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var backdropView: UIImageView!
     @IBOutlet weak var posterView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
@@ -42,7 +44,12 @@ class MovieGridDetailsViewController: UIViewController {
             }
             .store(in: &cancellables)
         
-        // Do any additional setup after loading the view.
+        // Scroll View
+        let contentWidth = scrollView.bounds.width
+        let contentHeight = scrollView.bounds.height * 2
+        scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
+        
+        // Superhero Movie Detail UI Elements
         titleLabel.text = superheroMovie.title
         titleLabel.sizeToFit()
         
