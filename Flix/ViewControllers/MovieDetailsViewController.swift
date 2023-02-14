@@ -71,12 +71,6 @@ class MovieDetailsViewController: UIViewController {
         setRatingNumberSettings()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        movieDetailViewModel.observer?.cancel()
-        
-    }
-    
     func setRatingNumberSettings() {
         ratingView.settings.filledColor = UIColor.yellow
         ratingView.settings.emptyBorderColor = UIColor.yellow

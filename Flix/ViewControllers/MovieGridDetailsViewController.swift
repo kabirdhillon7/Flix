@@ -36,7 +36,7 @@ class MovieGridDetailsViewController: UIViewController {
         let apiService: DataServicing = APICaller()
         movieGridDetailViewModel = MovieGridDetailsViewModel(apiService: apiService, movieId: superheroMovie.id)
         movieGridDetailViewModel.$superheroMovieTrailerKey
-            .receive(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
                 DispatchQueue.main.async {
                     self?.playerView.load(withVideoId: value)

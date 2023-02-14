@@ -11,9 +11,9 @@ import Combine
 class MovieDetailsViewModel {
     
     private let apiService: DataServicing
-    var observer: Cancellable?
+    private var observer: Cancellable?
     
-    @Published var movieTrailerKey: String = ""
+    @Published private(set) var movieTrailerKey: String = ""
     
     init(apiService: DataServicing, movieId: Int) {
         self.apiService = apiService
@@ -26,7 +26,7 @@ class MovieDetailsViewModel {
     
     func getMovieTrailerKey(movieID: Int) {
         observer = apiService.getMovieTrailer(movieId: movieID)
-            .receive(on: DispatchQueue.global(qos: .background))
+            .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:
@@ -35,10 +35,7 @@ class MovieDetailsViewModel {
                     print("Error getting movie trailer: \(error)")
                 }
             } receiveValue: { [weak self] key in
-                DispatchQueue.main.async {
-                    print("Movie Trailer Key: \(key)")
-                    self?.movieTrailerKey = key
-                }
+                self?.movieTrailerKey = key
             }
     }
 }

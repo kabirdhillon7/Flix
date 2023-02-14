@@ -10,9 +10,9 @@ import Combine
 
 class MoviesViewModel {
         
-    private let apiService: DataServicing // replace w/ DS
+    private let apiService: DataServicing
 
-    @Published var movies = [Movie]()
+    @Published private(set) var movies = [Movie]()
     
     private var observer: Cancellable?
     
