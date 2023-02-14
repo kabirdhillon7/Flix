@@ -16,7 +16,6 @@ class MovieDetailsViewController: UIViewController {
     var movieDetailViewModel: MovieDetailsViewModel!
     var cancellables = Set<AnyCancellable>()
     
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var backdropView: UIImageView!
@@ -44,31 +43,51 @@ class MovieDetailsViewController: UIViewController {
             .store(in: &cancellables)
         
         // Scroll View
+        setUpScrollView()
+        
+        // Movie Details UI Elements
+        setMovieLabel()
+        setSynopsisLabel()
+        setPosterImageView()
+        setBackdropImageView()
+        setRatingBar()
+        setRatingNumberSettings()
+    }
+    
+    func setUpScrollView() {
         let contentWidth = scrollView.bounds.width
         let contentHeight = scrollView.bounds.height * 3
         scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
-        
-        // Movie Details UI Elements
+    }
+    
+    func setMovieLabel() {
         titleLabel.text = movie.title
         titleLabel.sizeToFit()
-        
+    }
+    
+    func setSynopsisLabel() {
         synopsisLabel.text = movie.overview
         synopsisLabel.sizeToFit()
-        
+    }
+    
+    func setPosterImageView() {
         guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + movie.poster_path) else {
             print("Unable to get posterUrl")
             return
         }
         posterView.af.setImage(withURL: posterUrl)
-        
+    }
+    
+    func setBackdropImageView() {
         guard let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + movie.backdrop_path) else {
             print("Unable to get backdropUrl")
             return
         }
         backdropView.af.setImage(withURL: backdropUrl)
-        
+    }
+    
+    func setRatingBar() {
         ratingView.text = String(format: "%.1f", movie.vote_average)
-        setRatingNumberSettings()
     }
     
     func setRatingNumberSettings() {

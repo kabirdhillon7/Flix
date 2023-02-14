@@ -60,7 +60,7 @@
 		057C4A74E06BFBED55F8CDDF /* Pods_Flix_FlixUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flix_FlixUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		15CEE239E7C7601B5090507B /* Pods_FlixTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FlixTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC3D18C619C3E519B7F2991 /* Pods-Flix-FlixUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flix-FlixUITests.release.xcconfig"; path = "Target Support Files/Pods-Flix-FlixUITests/Pods-Flix-FlixUITests.release.xcconfig"; sourceTree = "<group>"; };
-		4854A9212966A18000D11310 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoviesViewModel.swift; path = Flix/Models/MoviesViewModel.swift; sourceTree = SOURCE_ROOT; };
+		4854A9212966A18000D11310 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoviesViewModel.swift; path = "Flix/ViewModels/Now Playing/MoviesViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		485BA225275963BD002C4F39 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
 		485BA2272759FC73002C4F39 /* MovieGridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridViewController.swift; sourceTree = "<group>"; };
 		485BA2292759FF8F002C4F39 /* MovieGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridCell.swift; sourceTree = "<group>"; };
@@ -197,10 +197,8 @@
 		48A36DAC295EC1AE00F57AF2 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				4854A9212966A18000D11310 /* MoviesViewModel.swift */,
-				48FB9AA929906C9800A07362 /* MovieDetailsViewModel.swift */,
-				487EE5382966BAE400CEFB57 /* MoviesGridViewModel.swift */,
-				48FB9AAD2990BF2700A07362 /* MovieGridDetailsViewModel.swift */,
+				48D808C9299B433000275A0B /* Now Playing */,
+				48D808C8299B432600275A0B /* Superhero */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -208,10 +206,8 @@
 		48A36DAD295EC1C300F57AF2 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				489DE9B42746288A0055763E /* MoviesViewController.swift */,
-				485BA225275963BD002C4F39 /* MovieDetailsViewController.swift */,
-				485BA2272759FC73002C4F39 /* MovieGridViewController.swift */,
-				485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */,
+				48D808C6299B429B00275A0B /* Now Playing */,
+				48D808C7299B42A700275A0B /* Superhero */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -249,6 +245,42 @@
 				48CF3F132963DC8A00B8F9CC /* Movie.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		48D808C6299B429B00275A0B /* Now Playing */ = {
+			isa = PBXGroup;
+			children = (
+				489DE9B42746288A0055763E /* MoviesViewController.swift */,
+				485BA225275963BD002C4F39 /* MovieDetailsViewController.swift */,
+			);
+			path = "Now Playing";
+			sourceTree = "<group>";
+		};
+		48D808C7299B42A700275A0B /* Superhero */ = {
+			isa = PBXGroup;
+			children = (
+				485BA2272759FC73002C4F39 /* MovieGridViewController.swift */,
+				485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */,
+			);
+			path = Superhero;
+			sourceTree = "<group>";
+		};
+		48D808C8299B432600275A0B /* Superhero */ = {
+			isa = PBXGroup;
+			children = (
+				487EE5382966BAE400CEFB57 /* MoviesGridViewModel.swift */,
+				48FB9AAD2990BF2700A07362 /* MovieGridDetailsViewModel.swift */,
+			);
+			path = Superhero;
+			sourceTree = "<group>";
+		};
+		48D808C9299B433000275A0B /* Now Playing */ = {
+			isa = PBXGroup;
+			children = (
+				4854A9212966A18000D11310 /* MoviesViewModel.swift */,
+				48FB9AA929906C9800A07362 /* MovieDetailsViewModel.swift */,
+			);
+			path = "Now Playing";
 			sourceTree = "<group>";
 		};
 		48FB9A4C298C9D3E00A07362 /* Networking */ = {

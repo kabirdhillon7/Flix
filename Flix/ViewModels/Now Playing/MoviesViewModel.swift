@@ -16,7 +16,6 @@ class MoviesViewModel {
     
     private var observer: Cancellable?
     
-    // DataServicing type instead of APICaller
     init(apiService: DataServicing) {
         self.apiService = apiService
         getMovieData()
