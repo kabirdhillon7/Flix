@@ -45,35 +45,51 @@ class MovieGridDetailsViewController: UIViewController {
             .store(in: &cancellables)
         
         // Scroll View
+        setUpScrollView()
+        
+        // Superhero Movie Detail UI Elements
+        setTitleLabel()
+        setSynopsisLabel()
+        setPosterImageView()
+        setBackdropImageView()
+        setRatingBar()
+        setRatingNumberSettings()
+    }
+    
+    func setUpScrollView() {
         let contentWidth = scrollView.bounds.width
         let contentHeight = scrollView.bounds.height * 2
         scrollView.contentSize = CGSize(width: contentWidth, height: contentHeight)
-        
-        // Superhero Movie Detail UI Elements
+    }
+    
+    func setTitleLabel() {
         titleLabel.text = superheroMovie.title
         titleLabel.sizeToFit()
-        
+    }
+    
+    func setSynopsisLabel() {
         synopsisLabel.text = superheroMovie.overview
         synopsisLabel.sizeToFit()
-        
-//        let posterBaseUrl = "https://image.tmdb.org/t/p/w185"
-//        let posterPath = superheroMovie.poster_path
+    }
+    
+    func setPosterImageView() {
         guard let posterUrl = URL(string: "https://image.tmdb.org/t/p/w185" + superheroMovie.poster_path) else {
             print("Unable to get superhero posterUrl")
             return
         }
         posterView.af.setImage(withURL: posterUrl)
-        
-//        let backdropBaseUrl = "https://image.tmdb.org/t/p/w780"
-//        let backdropPath = superheroMovie.backdrop_path
+    }
+    
+    func setBackdropImageView() {
         guard let backdropUrl = URL(string: "https://image.tmdb.org/t/p/w780" + superheroMovie.backdrop_path) else {
             print("Unable to get superhero backdropUrl")
             return
         }
         backdropView.af.setImage(withURL: backdropUrl)
-        
+    }
+    
+    func setRatingBar() {
         ratingView.text = String(format: "%.1f", superheroMovie.vote_average)
-        setRatingNumberSettings()
     }
     
     func setRatingNumberSettings() {
