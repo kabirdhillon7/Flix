@@ -17,16 +17,14 @@ Flix is designed using the Model-View-ViewModel (MVVM) pattern, which separates 
 
 Some of the main features include:
 
-- [X] User can tap a cell to see more details about a particular movie.
-- [X] User can tap a tab bar button to view a grid layout of Movie Posters using a CollectionView.
-- [X] User sees an app icon on the home screen and a styled launch screen.
-- [X] User can view and scroll through a list of movies now playing in theaters.
-- [X] User can view the movie poster image for each movie.
-
-- [X] User can view the app on various device sizes and orientations.
-- [X] Run your app on a real device.
-- [X] User can tap a poster in the collection view to see a detail screen of that movie, including its plot summary.
-- [X] In the detail view, when the user taps the YouTube Player View they can view the trailer.
+- Implements a tab bar with a now playing and superhero tab.
+- Now Playing Tab
+  - User can view and scroll through a list of movies now playing in theaters.
+  - User can tap a cell to see more details about a particular movie, which includes: the movie poster image, backdrop image, title, plot description, and YouTube trailer.
+- Superhero Tab
+  - User can view a grid layout of superhero-related Movie Posters using a CollectionView.
+  - User can tap a poster in the collection view to see a detail screen of that movie, which includes: the movie poster image, backdrop image, title, plot description, and YouTube trailer.
+- User can view the app on various device sizes and orientations using AutoLayout.
 
 ## Requirements
 
