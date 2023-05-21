@@ -20,7 +20,7 @@ Some of the main features include:
 - Implements a tab bar with a now playing and superhero tab.
 - Now Playing Tab
   - User can view and scroll through a list of movies now playing in theaters.
-  - User can tap a cell to see more details about a particular movie, which includes: the movie poster image, backdrop image, title, plot description, and YouTube trailer.
+  - User can tap a cell to see more details about a particular movie, which includes: the movie poster image, backdrop image, title, plot description, rating, and YouTube trailer.
 - Superhero Tab
   - User can view a grid layout of superhero-related Movie Posters using a CollectionView.
   - User can tap a poster in the collection view to see a detail screen of that movie, which includes: the movie poster image, backdrop image, title, plot description, and YouTube trailer.
