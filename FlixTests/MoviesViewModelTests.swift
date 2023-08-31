@@ -34,7 +34,13 @@ final class MoviesViewModelTests: XCTestCase {
         moviesVM = MoviesViewModel(apiService: mockAPIService)
     }
     
-    func testGetMovieData() {
+    override func tearDown() {
+        moviesVM = nil
+        mockAPIService = nil
+        super.tearDown()
+    }
+    
+    func test_getMovieData_shouldNotBeNil() {
         moviesVM.getMovieData()
         XCTAssertNotNil(moviesVM.movies)
         XCTAssertTrue(moviesVM.movies.isEmpty)

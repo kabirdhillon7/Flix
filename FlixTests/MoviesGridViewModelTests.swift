@@ -19,6 +19,12 @@ final class MoviesGridViewModelTests: XCTestCase {
         moviesGridVM = MoviesGridViewModel(apiCaller: mockAPIService)
     }
     
+    override func tearDown() {
+        mockAPIService = nil
+        moviesGridVM = nil
+        super.tearDown()
+    }
+    
     func testGetSuperheroMovieData() {
         moviesGridVM.getSuperheroMovieData()
         XCTAssertNotNil(moviesGridVM.superheroMovies)

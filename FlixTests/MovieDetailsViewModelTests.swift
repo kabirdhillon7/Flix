@@ -21,6 +21,12 @@ final class MovieDetailsViewModelTests: XCTestCase {
         movieDetailVM = MovieDetailsViewModel(apiService: mockAPIService, movieId: 1)
     }
     
+    override func tearDown() {
+        mockAPIService = nil
+        movieDetailVM = nil
+        super.tearDown()
+    }
+    
     func testGetTrailerData() {
         let exp = expectation(description: #function)
         
