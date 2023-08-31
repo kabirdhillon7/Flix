@@ -8,7 +8,8 @@
 import Foundation
 import Combine
 
-class MoviesViewModel {
+/// A view model responsible for managing movie data and API calls
+final class MoviesViewModel {
         
     private let apiService: DataServicing
 

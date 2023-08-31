@@ -8,7 +8,8 @@
 import Foundation
 import Combine
 
-class MovieDetailsViewModel {
+/// A view model responsible for movie detail data
+final class MovieDetailsViewModel {
     
     private let apiService: DataServicing
     private var observer: Cancellable?

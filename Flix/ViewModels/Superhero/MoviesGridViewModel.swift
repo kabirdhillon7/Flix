@@ -8,7 +8,8 @@
 import Foundation
 import Combine
 
-class MoviesGridViewModel: NSObject {
+/// A view model responsible for superhero movie data and API calls
+final class MoviesGridViewModel: NSObject {
     
     private var apiCaller: DataServicing!
     @Published var superheroMovies = [Movie]()

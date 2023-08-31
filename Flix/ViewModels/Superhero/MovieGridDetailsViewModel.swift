@@ -8,7 +8,8 @@
 import Foundation
 import Combine
 
-class MovieGridDetailsViewModel {
+/// A view model responsible for superhero movie detail data
+final class MovieGridDetailsViewModel {
     private let apiService: DataServicing
     var observer: Cancellable?
     
