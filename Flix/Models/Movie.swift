@@ -17,6 +17,15 @@ struct Movie: Decodable {
     let backdrop_path: String
     let vote_average: Double
     
+    init(id: Int, title: String, overview: String, poster_path: String, backdrop_path: String, vote_average: Double) {
+        self.id = id
+        self.title = title
+        self.overview = overview
+        self.poster_path = poster_path
+        self.backdrop_path = backdrop_path
+        self.vote_average = vote_average
+    }
+    
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
