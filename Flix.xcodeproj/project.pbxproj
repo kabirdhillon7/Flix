@@ -17,6 +17,7 @@
 		487A666129515FCF00FAC5F2 /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 487A666029515FCF00FAC5F2 /* Cosmos */; };
 		487EE5392966BAE400CEFB57 /* MoviesGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 487EE5382966BAE400CEFB57 /* MoviesGridViewModel.swift */; };
 		488B19692ADF00EC0095AAE7 /* MovieTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B19682ADF00EC0095AAE7 /* MovieTests.swift */; };
+		488B196B2ADF02FC0095AAE7 /* APICallerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488B196A2ADF02FC0095AAE7 /* APICallerTests.swift */; };
 		489DE9852746203E0055763E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9842746203E0055763E /* AppDelegate.swift */; };
 		489DE9872746203E0055763E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489DE9862746203E0055763E /* SceneDelegate.swift */; };
 		489DE98C2746203E0055763E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 489DE98A2746203E0055763E /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		485BA22B275A0D9B002C4F39 /* MovieGridDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGridDetailsViewController.swift; sourceTree = "<group>"; };
 		487EE5382966BAE400CEFB57 /* MoviesGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesGridViewModel.swift; sourceTree = "<group>"; };
 		488B19682ADF00EC0095AAE7 /* MovieTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTests.swift; sourceTree = "<group>"; };
+		488B196A2ADF02FC0095AAE7 /* APICallerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICallerTests.swift; sourceTree = "<group>"; };
 		489DE9812746203E0055763E /* Flix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		489DE9842746203E0055763E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		489DE9862746203E0055763E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -179,11 +181,12 @@
 			isa = PBXGroup;
 			children = (
 				489DE99B2746203F0055763E /* FlixTests.swift */,
+				488B19682ADF00EC0095AAE7 /* MovieTests.swift */,
+				488B196A2ADF02FC0095AAE7 /* APICallerTests.swift */,
 				48FB9A4D298CAB7B00A07362 /* MoviesViewModelTests.swift */,
 				48FB9A4F298CEC4F00A07362 /* MoviesGridViewModelTests.swift */,
 				48FB9AAB2990996300A07362 /* MovieDetailsViewModelTests.swift */,
 				48FB9AAF2990C3EF00A07362 /* MovieGridDetailsViewModelTests.swift */,
-				488B19682ADF00EC0095AAE7 /* MovieTests.swift */,
 			);
 			path = FlixTests;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				488B19692ADF00EC0095AAE7 /* MovieTests.swift in Sources */,
 				489DE99C2746203F0055763E /* FlixTests.swift in Sources */,
 				48FB9A4E298CAB7B00A07362 /* MoviesViewModelTests.swift in Sources */,
+				488B196B2ADF02FC0095AAE7 /* APICallerTests.swift in Sources */,
 				48FB9AB02990C3EF00A07362 /* MovieGridDetailsViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

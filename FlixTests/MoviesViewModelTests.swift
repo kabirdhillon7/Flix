@@ -6,22 +6,7 @@
 //
 
 import XCTest
-import Combine
 @testable import Flix
-
-class MockAPIService: DataServicing {
-    
-    var mockTrailerKey = ""
-    var cancellables = Set<AnyCancellable>()
-    
-    func getMovies(toUrl url: URL) -> AnyPublisher<[Movie], Error> {
-        Result.Publisher([]).eraseToAnyPublisher()
-    }
-    
-    func getMovieTrailer(movieId: Int) -> AnyPublisher<String, Error> {
-        Result.Publisher(mockTrailerKey).eraseToAnyPublisher()
-    }
-}
 
 final class MoviesViewModelTests: XCTestCase {
     
